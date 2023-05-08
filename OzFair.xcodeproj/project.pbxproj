@@ -15,6 +15,8 @@
 		5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247172A09C05900AEDBA5 /* Datastore.swift */; };
 		5D12471A2A09C06500AEDBA5 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247192A09C06500AEDBA5 /* Definitions.swift */; };
 		5D12471C2A09C07100AEDBA5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12471B2A09C07100AEDBA5 /* Helpers.swift */; };
+		5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12471D2A09C26600AEDBA5 /* Colors.swift */; };
+		5D1247202A09C2ED00AEDBA5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5D12471F2A09C2ED00AEDBA5 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		5D1247172A09C05900AEDBA5 /* Datastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datastore.swift; sourceTree = "<group>"; };
 		5D1247192A09C06500AEDBA5 /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		5D12471B2A09C07100AEDBA5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		5D12471D2A09C26600AEDBA5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5D12471F2A09C2ED00AEDBA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 		5D03499F2A090B3700D5E43D = {
 			isa = PBXGroup;
 			children = (
+				5D12471F2A09C2ED00AEDBA5 /* .gitignore */,
 				5D0349AA2A090B3700D5E43D /* OzFair */,
 				5D0349A92A090B3700D5E43D /* Products */,
 			);
@@ -91,6 +96,7 @@
 				5D1247172A09C05900AEDBA5 /* Datastore.swift */,
 				5D1247192A09C06500AEDBA5 /* Definitions.swift */,
 				5D12471B2A09C07100AEDBA5 /* Helpers.swift */,
+				5D12471D2A09C26600AEDBA5 /* Colors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0349B32A090B3800D5E43D /* Preview Assets.xcassets in Resources */,
+				5D1247202A09C2ED00AEDBA5 /* .gitignore in Resources */,
 				5D0349B02A090B3800D5E43D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +183,7 @@
 				5D12471A2A09C06500AEDBA5 /* Definitions.swift in Sources */,
 				5D0349BD2A09150E00D5E43D /* ContentView.swift in Sources */,
 				5D12471C2A09C07100AEDBA5 /* Helpers.swift in Sources */,
+				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,
 				5D1247162A09C03900AEDBA5 /* ViewController.swift in Sources */,
 				5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */,
