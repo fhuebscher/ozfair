@@ -1,8 +1,8 @@
 //
 //  Datastore.swift
-//  Bubble-Joel
+//  OzFair
 //
-//  Created by Hayden Fang on 3/4/2023.
+//  Created by Joel Weber on 09.05.23.
 //
 
 import Foundation
@@ -26,7 +26,7 @@ class Datastore {
         }
         
         if let friends = NSDictionary(contentsOf: friendsUrl) as? [String: String] {
-            self.friendsUrl = friends
+            self.friends = friends
         }
     }
     
@@ -44,4 +44,3 @@ class Datastore {
         return friends
     }
 }
-

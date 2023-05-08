@@ -1,9 +1,8 @@
 //
 //  Helpers.swift
-//  Bubble-Joel
+//  OzFair
 //
-//  Created by Joel Weber on 25.04.23.
+//  Created by Joel Weber on 09.05.23.
 //
 
 import Foundation
-
