@@ -18,8 +18,13 @@
 		5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12471D2A09C26600AEDBA5 /* Colors.swift */; };
 		5D1247202A09C2ED00AEDBA5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5D12471F2A09C2ED00AEDBA5 /* .gitignore */; };
 		5D1247222A09CA8E00AEDBA5 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247212A09CA8E00AEDBA5 /* Tabs.swift */; };
-		5D1247242A09CD3900AEDBA5 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247232A09CD3900AEDBA5 /* Cards.swift */; };
+		5D1247242A09CD3900AEDBA5 /* BalanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */; };
 		5D1247262A09D63900AEDBA5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247252A09D63900AEDBA5 /* List.swift */; };
+		5D1247282A09F01000AEDBA5 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247272A09F01000AEDBA5 /* Grid.swift */; };
+		5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */; };
+		5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472B2A0A119600AEDBA5 /* Button.swift */; };
+		5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */; };
+		5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +40,13 @@
 		5D12471D2A09C26600AEDBA5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5D12471F2A09C2ED00AEDBA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5D1247212A09CA8E00AEDBA5 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
-		5D1247232A09CD3900AEDBA5 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCard.swift; sourceTree = "<group>"; };
 		5D1247252A09D63900AEDBA5 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		5D1247272A09F01000AEDBA5 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyInput.swift; sourceTree = "<group>"; };
+		5D12472B2A0A119600AEDBA5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCard.swift; sourceTree = "<group>"; };
+		5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircleStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +103,13 @@
 			children = (
 				5D0349BC2A09150E00D5E43D /* ContentView.swift */,
 				5D1247212A09CA8E00AEDBA5 /* Tabs.swift */,
-				5D1247232A09CD3900AEDBA5 /* Cards.swift */,
+				5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */,
+				5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */,
 				5D1247252A09D63900AEDBA5 /* List.swift */,
+				5D1247272A09F01000AEDBA5 /* Grid.swift */,
+				5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */,
+				5D12472B2A0A119600AEDBA5 /* Button.swift */,
+				5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,14 +205,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D12471A2A09C06500AEDBA5 /* Definitions.swift in Sources */,
+				5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */,
 				5D0349BD2A09150E00D5E43D /* ContentView.swift in Sources */,
 				5D12471C2A09C07100AEDBA5 /* Helpers.swift in Sources */,
+				5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */,
 				5D1247262A09D63900AEDBA5 /* List.swift in Sources */,
-				5D1247242A09CD3900AEDBA5 /* Cards.swift in Sources */,
+				5D1247282A09F01000AEDBA5 /* Grid.swift in Sources */,
+				5D1247242A09CD3900AEDBA5 /* BalanceCard.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
+				5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,
 				5D1247162A09C03900AEDBA5 /* ViewController.swift in Sources */,
 				5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */,
+				5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */,
 				5D1247222A09CA8E00AEDBA5 /* Tabs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

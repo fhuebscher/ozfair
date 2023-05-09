@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Cards: View {
+struct BalanceCard: View {
     let title: String
     let amount: Double
     let bgColor: Color
