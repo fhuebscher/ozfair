@@ -19,6 +19,7 @@
 		5D1247202A09C2ED00AEDBA5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5D12471F2A09C2ED00AEDBA5 /* .gitignore */; };
 		5D1247222A09CA8E00AEDBA5 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247212A09CA8E00AEDBA5 /* Tabs.swift */; };
 		5D1247242A09CD3900AEDBA5 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247232A09CD3900AEDBA5 /* Cards.swift */; };
+		5D1247262A09D63900AEDBA5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1247252A09D63900AEDBA5 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		5D12471F2A09C2ED00AEDBA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5D1247212A09CA8E00AEDBA5 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		5D1247232A09CD3900AEDBA5 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		5D1247252A09D63900AEDBA5 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				5D0349BC2A09150E00D5E43D /* ContentView.swift */,
 				5D1247212A09CA8E00AEDBA5 /* Tabs.swift */,
 				5D1247232A09CD3900AEDBA5 /* Cards.swift */,
+				5D1247252A09D63900AEDBA5 /* List.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5D12471A2A09C06500AEDBA5 /* Definitions.swift in Sources */,
 				5D0349BD2A09150E00D5E43D /* ContentView.swift in Sources */,
 				5D12471C2A09C07100AEDBA5 /* Helpers.swift in Sources */,
+				5D1247262A09D63900AEDBA5 /* List.swift in Sources */,
 				5D1247242A09CD3900AEDBA5 /* Cards.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,

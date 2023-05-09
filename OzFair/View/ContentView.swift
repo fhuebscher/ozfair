@@ -8,7 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab = 0
+    
     var body: some View {
+        TabView(selection: $selectedTab) {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+                .tag(0)
+            
+            TransferView()
+                .tabItem {
+                    Image(systemName: "arrow.right.arrow.left")
+                    Text("Transfer")
+                }
+                .tag(1)
+            GroupsView()
+                .tabItem {
+                    Image(systemName: "person.3")
+                    Text("Groups")
+                }
+                .tag(1)
+            MoreView()
+                .tabItem {
+                    Image(systemName: "ellipsis")
+                    Text("More")
+                }
+                .tag(1)
+        }
+    }
+}
+
+struct HomeView: View {
+    var body: some View {
+        
         // Whole stack
         VStack(alignment: .leading) {
             // Title
@@ -40,6 +75,7 @@ struct ContentView: View {
                     }
             
             Spacer()
+            // Recent Transactions
             Text("Recent Transactions")
             .fontWeight(.semibold)
             .font(.headline)
@@ -53,10 +89,18 @@ struct ContentView: View {
                 ("This Month", 2, false),
                 ("6 Months", 2, false),
             ])
+            .padding(.bottom, 10)
+            
+            VStack {
+                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 15)
         .padding(.horizontal, 30)
+        .background(Color.frameBG)
         // Whole Stack End
         
     }
@@ -65,5 +109,23 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct TransferView: View {
+    var body: some View {
+        Text("Transfer")
+    }
+}
+
+struct GroupsView: View {
+    var body: some View {
+        Text("Groups")
+    }
+}
+
+struct MoreView: View {
+    var body: some View {
+        Text("More")
     }
 }
