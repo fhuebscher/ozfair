@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A85E7D5E59C5847A8991081 /* libPods-OzFair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */; };
 		1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */; };
 		1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */; };
 		1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB12A108B7E009E074A /* ConverterPresenter.swift */; };
@@ -29,7 +30,6 @@
 		5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472B2A0A119600AEDBA5 /* Button.swift */; };
 		5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */; };
 		5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */; };
-		AD91C3514B19DE9BB9C5B716 /* Pods_OzFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,7 @@
 		5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircleStack.swift; sourceTree = "<group>"; };
 		918FE5982CC27AEFDDFCC208 /* Pods-OzFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.debug.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.debug.xcconfig"; sourceTree = "<group>"; };
 		BED5D49CEF0DF812FA9C069A /* Pods-OzFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.release.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.release.xcconfig"; sourceTree = "<group>"; };
-		C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OzFair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OzFair.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD91C3514B19DE9BB9C5B716 /* Pods_OzFair.framework in Frameworks */,
+				1A85E7D5E59C5847A8991081 /* libPods-OzFair.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 		4202251212A29BF75BDBC84E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */,
+				D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,7 +181,6 @@
 				5D0349A42A090B3700D5E43D /* Sources */,
 				5D0349A52A090B3700D5E43D /* Frameworks */,
 				5D0349A62A090B3700D5E43D /* Resources */,
-				F341B5C67DDB0BE429CF5D01 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,23 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F341B5C67DDB0BE429CF5D01 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OzFair/Pods-OzFair-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OzFair/Pods-OzFair-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OzFair/Pods-OzFair-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
