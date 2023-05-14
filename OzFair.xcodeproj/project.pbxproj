@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B67777A2A1110B70099B7F7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6777792A1110B70099B7F7 /* CustomTabBar.swift */; };
+		0B67777F2A1111150099B7F7 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777C2A1111150099B7F7 /* Poppins-Medium.ttf */; };
+		0B6777802A1111150099B7F7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */; };
+		0B6777812A1111150099B7F7 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777E2A1111150099B7F7 /* Poppins-SemiBold.ttf */; };
 		1A85E7D5E59C5847A8991081 /* libPods-OzFair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */; };
 		1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */; };
 		1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */; };
@@ -31,10 +35,14 @@
 		5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */; };
 		5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */; };
 		5D76F1BA2A10C7840048AA14 /* NewExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76F1B92A10C7840048AA14 /* NewExpense.swift */; };
-		AD91C3514B19DE9BB9C5B716 /* Pods_OzFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B6777792A1110B70099B7F7 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		0B67777C2A1111150099B7F7 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		0B67777E2A1111150099B7F7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		0B6777822A1111270099B7F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterInteractor.swift; sourceTree = "<group>"; };
 		1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateConverter.swift; sourceTree = "<group>"; };
 		1D230AB12A108B7E009E074A /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
@@ -76,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B67777B2A1110FB0099B7F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B67777C2A1111150099B7F7 /* Poppins-Medium.ttf */,
+				0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */,
+				0B67777E2A1111150099B7F7 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		4202251212A29BF75BDBC84E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +124,8 @@
 		5D0349AA2A090B3700D5E43D /* OzFair */ = {
 			isa = PBXGroup;
 			children = (
+				0B6777822A1111270099B7F7 /* Info.plist */,
+				0B67777B2A1110FB0099B7F7 /* Fonts */,
 				5D1247122A09BFDC00AEDBA5 /* Controller */,
 				5D12470B2A09BFA000AEDBA5 /* Model */,
 				5D0349BA2A0910D700D5E43D /* View */,
@@ -127,6 +147,7 @@
 		5D0349BA2A0910D700D5E43D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B6777792A1110B70099B7F7 /* CustomTabBar.swift */,
 				5D0349BC2A09150E00D5E43D /* ContentView.swift */,
 				5D1247212A09CA8E00AEDBA5 /* Tabs.swift */,
 				5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */,
@@ -233,8 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0349B32A090B3800D5E43D /* Preview Assets.xcassets in Resources */,
+				0B67777F2A1111150099B7F7 /* Poppins-Medium.ttf in Resources */,
 				5D1247202A09C2ED00AEDBA5 /* .gitignore in Resources */,
+				0B6777812A1111150099B7F7 /* Poppins-SemiBold.ttf in Resources */,
 				5D0349B02A090B3800D5E43D /* Assets.xcassets in Resources */,
+				0B6777802A1111150099B7F7 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +310,7 @@
 				1D230AB52A108B7E009E074A /* TransferService.swift in Sources */,
 				5D1247162A09C03900AEDBA5 /* ViewController.swift in Sources */,
 				5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */,
+				0B67777A2A1110B70099B7F7 /* CustomTabBar.swift in Sources */,
 				5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */,
 				1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */,
 				1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */,
@@ -422,6 +447,7 @@
 				DEVELOPMENT_TEAM = N2BXQ7CV7S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OzFair/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -453,6 +479,7 @@
 				DEVELOPMENT_TEAM = N2BXQ7CV7S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OzFair/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

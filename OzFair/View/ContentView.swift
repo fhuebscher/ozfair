@@ -8,37 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = 2
+    
+    @State var selectedTab: NavTabs = .home
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-                .tag(0)
-            
-            TransferView()
-                .tabItem {
-                    Image(systemName: "arrow.right.arrow.left")
-                    Text("Transfer")
-                }
-                .tag(1)
-            GroupsView()
-                .tabItem {
-                    Image(systemName: "person.3")
-                    Text("Groups")
-                }
-                .tag(2)
-            MoreView()
-                .tabItem {
-                    Image(systemName: "ellipsis")
-                    Text("More")
-                }
-                .tag(3)
+        
+        VStack {
+            // Show different views based on the selected tab
+            if selectedTab == .home {
+                HomeView()
+            } else if selectedTab == .groups {
+                GroupsView()
+            } else if selectedTab == .transfer {
+                TransferView()
+            } else if selectedTab == .more {
+                MoreView()
+            }
+            // Display the custom tab bar
+            CustomTabBar(selectedTab: $selectedTab)
         }
-        .accentColor(.navActive)
     }
 }
 
