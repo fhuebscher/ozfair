@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selectedTab: NavTabs = .home
+//    @ObservedObject var transferViewModel = TransferViewModel()
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct ContentView: View {
             } else if selectedTab == .groups {
                 GroupsView()
             } else if selectedTab == .transfer {
-                TransferView()
+                TransferView() // TransferView(transferViewModel = TransferViewModel())
             } else if selectedTab == .more {
                 MoreView()
             }
@@ -64,12 +65,11 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
-                        BalanceCard(title: "Spending 1", amount: 2000.05, bgColor: .cardColor1)
-                        BalanceCard(title: "Spending 2", amount: 100.23, bgColor: .cardColor2)
-                        BalanceCard(title: "Spending 3", amount: 24.50, bgColor: .cardColor2)
-                        BalanceCard(title: "Spending 4", amount: 1500.45, bgColor: .cardColor2)
+                        ForEach(balances, id: \.self) { balance in
+                            balance
+                                .padding(20)
+                        }
                     }
-                    .padding(20)
                 }
                 .padding(-30)
                 
@@ -106,7 +106,30 @@ struct HomeView: View {
 }
 
 struct TransferView: View {
-    @State var amount = ""
+    @State var amount = "0.0"
+    @State var convertedAmount = "0.0"
+    @State var selectedAccount = 0
+    @State var selectedCurrency = 0
+    @State private var showingConfirmation = false
+    
+    private let transferService = TransferService()
+    
+    var amountFromTitle: String {
+        let currencySign: String
+        
+        switch balances[selectedAccount].from {
+        case "AUD":
+            currencySign = "AU$"
+        case "EUR":
+            currencySign = "€"
+        case "USD":
+            currencySign = "$"
+        default:
+            currencySign = ""
+        }
+        
+        return "From (in \(currencySign))"
+    }
     
     var body: some View {
         
@@ -129,19 +152,67 @@ struct TransferView: View {
             // Tabs
             Tabs(items: [("Send", 30, true), ("Request", 1, false)])
                 .padding(.vertical, 20)
-            GridItem(title: "Spending Account")
-            GridItem(title: "To")
-            GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
+            HStack {
+                Text("From: ")
+                Spacer()
+                Picker("Select Account", selection: $selectedAccount) {
+                    ForEach(balances.indices, id: \.self) { index in
+                        let balance = balances[index]
+                        Text("\(balance.title) - $\(String(format: "%.2f", balance.amount))")
+                    }
+                }
+            }
+            .padding(.all, 5)
+            .background(Color.white)
+            .cornerRadius(10)
+            .frame(width: .infinity, alignment: .center)
+            HStack {
+                Text("To: ")
+                Spacer()
+                Picker("Select Recipient", selection: $selectedCurrency) {
+                    ForEach(accounts.indices, id: \.self) { index in
+                        let account = accounts[index]
+                        Text("\(account["name"]!) - \(account["currency"]!)")
+                    }
+                }
+            }
+            .padding(.all, 5)
+            .background(Color.white)
+            .cornerRadius(10)
+            .frame(width: .infinity, alignment: .center)
+            GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
+            GridItem(title: "To  (in \(accounts.indices.contains($selectedCurrency.wrappedValue) ? accounts[$selectedCurrency.wrappedValue]["currency"] ?? "AU$" : ""))", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(get: {
+                let amountDouble = Double(amount) ?? -1.0
+                let selectedCurrency = balances[$selectedAccount.wrappedValue].from
+                let targetCurrency = accounts.indices.contains($selectedCurrency.wrappedValue) ? accounts[$selectedCurrency.wrappedValue]["to"] ?? "AUD" : "AUD"
+                let convertedAmount = convertAmount(amount: amountDouble, from: selectedCurrency, to: targetCurrency)
+                return String(format: "%.2f", convertedAmount)
+            }, set: { newValue in
+                convertedAmount = newValue
+            }))
+
             GridItem(title: "Today", leftIcon: "calendar")
-            Spacer()
-            CustomButton(label: "Transfer Money") {}
+            CustomButton(label: "Transfer Money") {
+                amount = "0.0"
+                convertedAmount = "0.0"
+                selectedAccount = 0
+                selectedCurrency = 0
+                showingConfirmation = true
+            }
                 .padding(.bottom, 30)
+                .alert(isPresented: $showingConfirmation) {
+                                Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
+                                        // perform the transfer action here
+                                    }, secondaryButton: .cancel())
+                            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 15)
         .padding(.horizontal, 30)
         .background(Color.frameBG)
     }
+    
+  
 }
 
 struct GroupsView: View {

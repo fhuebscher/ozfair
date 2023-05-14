@@ -12,9 +12,7 @@
 		0B6777802A1111150099B7F7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */; };
 		0B6777812A1111150099B7F7 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777E2A1111150099B7F7 /* Poppins-SemiBold.ttf */; };
 		1A85E7D5E59C5847A8991081 /* libPods-OzFair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */; };
-		1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */; };
-		1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */; };
-		1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB12A108B7E009E074A /* ConverterPresenter.swift */; };
+		1D137E152A11545A0038AE2E /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D137E142A11545A0038AE2E /* TransferViewModel.swift */; };
 		1D230AB52A108B7E009E074A /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB22A108B7E009E074A /* TransferService.swift */; };
 		5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0349AB2A090B3700D5E43D /* OzFairApp.swift */; };
 		5D0349B02A090B3800D5E43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0349AF2A090B3800D5E43D /* Assets.xcassets */; };
@@ -43,9 +41,7 @@
 		0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		0B67777E2A1111150099B7F7 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		0B6777822A1111270099B7F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterInteractor.swift; sourceTree = "<group>"; };
-		1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateConverter.swift; sourceTree = "<group>"; };
-		1D230AB12A108B7E009E074A /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
+		1D137E142A11545A0038AE2E /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		1D230AB22A108B7E009E074A /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		5D0349A82A090B3700D5E43D /* OzFair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OzFair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0349AB2A090B3700D5E43D /* OzFairApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OzFairApp.swift; sourceTree = "<group>"; };
@@ -165,10 +161,8 @@
 		5D12470B2A09BFA000AEDBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */,
-				1D230AB12A108B7E009E074A /* ConverterPresenter.swift */,
-				1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */,
 				1D230AB22A108B7E009E074A /* TransferService.swift */,
+				1D137E142A11545A0038AE2E /* TransferViewModel.swift */,
 				5D1247172A09C05900AEDBA5 /* Datastore.swift */,
 				5D1247192A09C06500AEDBA5 /* Definitions.swift */,
 				5D12471B2A09C07100AEDBA5 /* Helpers.swift */,
@@ -302,7 +296,6 @@
 				5D76F1BA2A10C7840048AA14 /* NewExpense.swift in Sources */,
 				5D1247262A09D63900AEDBA5 /* List.swift in Sources */,
 				5D1247282A09F01000AEDBA5 /* Grid.swift in Sources */,
-				1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */,
 				5D1247242A09CD3900AEDBA5 /* BalanceCard.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
 				5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */,
@@ -312,8 +305,7 @@
 				5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */,
 				0B67777A2A1110B70099B7F7 /* CustomTabBar.swift in Sources */,
 				5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */,
-				1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */,
-				1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */,
+				1D137E152A11545A0038AE2E /* TransferViewModel.swift in Sources */,
 				5D1247222A09CA8E00AEDBA5 /* Tabs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8E21787C-3252-417B-B692-9836E3B77A7C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD1D17A8-7509-4794-A035-3C57EC622505"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OzFair/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "TransferView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 2142ef0acf068c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.init() -&gt; OzFair.TransferView"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 5676919def2b42c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of OzFair.TransferView.amount : Swift.String"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - d0e7b3e11836d6f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.amount.getter : Swift.String"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - b54cd7e2b101c6fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.amount.setter : Swift.String"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 990c4be32a28e2ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.amount.modify : Swift.String"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 9b70b08326b290fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.amount.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 808d0c1c95a31085"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.$amount.getter : SwiftUI.Binding&lt;Swift.String&gt;"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "CD1D17A8-7509-4794-A035-3C57EC622505 - 2142ef0acf068c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.init() -&gt; OzFair.TransferView"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OzFair/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "TransferView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 2142ef0acf068cc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.init() -&gt; OzFair.TransferView"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - f73e0e6793127a41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of OzFair.TransferView.selectedAccount : Swift.Int"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - a91bd5a830d5896f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.selectedAccount.getter : Swift.Int"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 2cde11e92934dd7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.selectedAccount.setter : Swift.Int"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 1ae8aec61d92ae6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.selectedAccount.modify : Swift.Int"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 84ff30d555fc987b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.selectedAccount.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 16175d4d4c8bafb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.$selectedAccount.getter : SwiftUI.Binding&lt;Swift.Int&gt;"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "D6C6C15F-B5DE-42CF-A7A1-6F46D73FD59E - 2142ef0acf068cc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OzFair.TransferView.init() -&gt; OzFair.TransferView"
+                  moduleName = "OzFair"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fhuebscher/Desktop/ozfair/OzFair/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

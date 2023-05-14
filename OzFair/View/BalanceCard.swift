@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct BalanceCard: View {
+struct BalanceCard: View, Identifiable, Equatable, Hashable {
+    let id = UUID()
     let title: String
     let amount: Double
     let bgColor: Color
+    let from: String
     
     static let formatter: NumberFormatter = {
         let formatter = NumberFormatter()

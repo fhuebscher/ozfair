@@ -54,6 +54,7 @@ struct GridItem: View {
         self._rightTextValue = rightTextValue
     }
     
+    
     var body: some View {
         HStack(alignment: .center) {
             if let leftIcon = leftIcon {
