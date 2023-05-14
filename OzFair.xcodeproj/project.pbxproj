@@ -166,7 +166,6 @@
 				918FE5982CC27AEFDDFCC208 /* Pods-OzFair.debug.xcconfig */,
 				BED5D49CEF0DF812FA9C069A /* Pods-OzFair.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
