@@ -1,5 +1,5 @@
 //
-//  Definitions.swift
+//  ConverterInteractor.swift
 //  OzFair
 //
 //  Created by Florian Huebscher on 11.05.23.
@@ -11,13 +11,16 @@ import RxSwift
 
 typealias RatesMoneyInfo = (rates: Rates, money: Money)
 
+// can be placed inside the controller
+// TODO fix missing components
+
 class ConverterInteractor {
     
     // TODO add interations
     
     private var exchangeRateConverter: ExchangeRateConverter
-    private var transferProvider: TransferProvider
-    
+    private var transferProvider: TransferService
+     
     init(exchangeRateConverter: ExchangeRateConverter, transferProvider: TransferProvider) {
         self.exchangeRateConverter = exchangeRateConverter
         self.transferProvider = transferProvider

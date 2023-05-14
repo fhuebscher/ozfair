@@ -1,5 +1,5 @@
 //
-//  Definitions.swift
+//  TransferService.swift
 //  OzFair
 //
 //  Created by Florian Huebscher on 10.05.23.
@@ -61,7 +61,7 @@ class TransferService {
     
 }
 
-extension TransferService: TransferProvider {
+extension TransferService {
     
     func getMoney() -> Observable<Money> {
         return self.money.asObservable()

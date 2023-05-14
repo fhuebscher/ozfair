@@ -1,5 +1,5 @@
 //
-//  Definitions.swift
+//  ExchangeRateConverter.swift
 //  OzFair
 //
 //  Created by Florian Huebscher on 10.05.23.

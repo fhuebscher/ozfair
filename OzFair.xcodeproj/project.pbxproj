@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */; };
+		1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */; };
+		1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB12A108B7E009E074A /* ConverterPresenter.swift */; };
+		1D230AB52A108B7E009E074A /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D230AB22A108B7E009E074A /* TransferService.swift */; };
 		5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0349AB2A090B3700D5E43D /* OzFairApp.swift */; };
 		5D0349B02A090B3800D5E43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0349AF2A090B3800D5E43D /* Assets.xcassets */; };
 		5D0349B32A090B3800D5E43D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0349B22A090B3800D5E43D /* Preview Assets.xcassets */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterInteractor.swift; sourceTree = "<group>"; };
+		1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateConverter.swift; sourceTree = "<group>"; };
+		1D230AB12A108B7E009E074A /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
+		1D230AB22A108B7E009E074A /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		5D0349A82A090B3700D5E43D /* OzFair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OzFair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0349AB2A090B3700D5E43D /* OzFairApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OzFairApp.swift; sourceTree = "<group>"; };
 		5D0349AF2A090B3800D5E43D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +125,10 @@
 		5D12470B2A09BFA000AEDBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D230AAE2A108B6C009E074A /* ConverterInteractor.swift */,
+				1D230AB12A108B7E009E074A /* ConverterPresenter.swift */,
+				1D230AB02A108B7E009E074A /* ExchangeRateConverter.swift */,
+				1D230AB22A108B7E009E074A /* TransferService.swift */,
 				5D1247172A09C05900AEDBA5 /* Datastore.swift */,
 				5D1247192A09C06500AEDBA5 /* Definitions.swift */,
 				5D12471B2A09C07100AEDBA5 /* Helpers.swift */,
@@ -211,13 +223,17 @@
 				5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */,
 				5D1247262A09D63900AEDBA5 /* List.swift in Sources */,
 				5D1247282A09F01000AEDBA5 /* Grid.swift in Sources */,
+				1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */,
 				5D1247242A09CD3900AEDBA5 /* BalanceCard.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
 				5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,
+				1D230AB52A108B7E009E074A /* TransferService.swift in Sources */,
 				5D1247162A09C03900AEDBA5 /* ViewController.swift in Sources */,
 				5D0349AC2A090B3700D5E43D /* OzFairApp.swift in Sources */,
 				5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */,
+				1D230AB42A108B7E009E074A /* ConverterPresenter.swift in Sources */,
+				1D230AB32A108B7E009E074A /* ExchangeRateConverter.swift in Sources */,
 				5D1247222A09CA8E00AEDBA5 /* Tabs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

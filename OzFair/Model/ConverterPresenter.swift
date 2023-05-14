@@ -1,3 +1,10 @@
+//
+//  ConverterPresenter.swift
+//  OzFair
+//
+//  Created by Florian Huebscher on 11.05.23.
+//
+
 typealias ExchangeMoney = (
     currency: Currency,
     value: Double,

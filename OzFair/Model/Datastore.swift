@@ -5,6 +5,8 @@
 //  Created by Joel Weber on 09.05.23.
 //
 
+// TODO probably not used
+
 import Foundation
 
 // Singleton Datastore that gets and sets scores and settings
