@@ -36,11 +36,25 @@ struct NewExpensesPanel: View {
                 GridItem(title: "For", rightText: "All")
                 
                 HStack {
-                    CustomButton(label: "Cancel Expense", color: .negativeAmount) {}
+                    CustomButton(label: "Cancel Expense", color: .negativeAmount) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                         .padding(.trailing, 5)
                     Spacer()
-                    CustomButton(label: "Confirm Expense", color: .navActive) {}
+                    CustomButton(label: "Confirm Expense", color: .navActive) {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        let todayString = dateFormatter.string(from: Date())
+                        if let amount = Double(amount) {
+                            let exp = Expense(title: title, amount: Double(amount), date: todayString)
+                            Datastore.shared.setExpense(expense: exp)
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            amount = ""
+                        }
+                    }
                         .padding(.leading, 5)
+                        .opacity(title != "" && amount != "" ? 1 : 0.5)
                 }.padding(.top, 30)
                 
                 Spacer()

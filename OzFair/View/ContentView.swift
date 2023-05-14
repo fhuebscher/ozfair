@@ -117,15 +117,6 @@ struct HomeView: View {
     }
 }
 
-
-//Transactions
-struct Transaction: Identifiable {
-    var id = UUID()
-    var title: String
-    var date: String
-    var amount: Double
-}
-
 struct TransferView: View {
     @State var amount = ""
     
@@ -166,7 +157,7 @@ struct TransferView: View {
 }
 
 struct GroupsView: View {
-    @State var showPanel = true
+    @State var showPanel = false
 
     var body: some View {
         
@@ -190,10 +181,11 @@ struct GroupsView: View {
                     }
                     Spacer()
                     CustomButton(label: "Settle up", icon: "dollarsign.square") {}
+                        .shadow(radius:3, x:2, y:2)
                 }
                 
                 TabView {
-                    ForEach(Datastore.shared.groups.sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
+                    ForEach(Datastore.shared.getGroups().sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
                         GroupCard(title:group.name, amount: group.amount)
                     }
                 }
@@ -221,9 +213,9 @@ struct GroupsView: View {
                 .padding(.bottom, 10)
                 
                 VStack {
-                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                    ForEach(Datastore.shared.getExpenses().sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
+                        ListItem(title: expense.title, date: expense.date, amount: expense.amount)
+                    }
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -231,7 +223,7 @@ struct GroupsView: View {
             .padding(.horizontal, 30)
             .background(Color.frameBG)
             
-            CustomButton(label: "Settle up", icon: "dollarsign.square") {
+            CustomButton(label: "Add Expense", icon: "plus") {
                 showPanel = true
                 print("here")
             }
@@ -240,6 +232,7 @@ struct GroupsView: View {
                 }
                 .padding(.trailing, 25)
                 .padding(.bottom, 25)
+                .shadow(radius:3, x:2, y:2)
         }
     }
 }

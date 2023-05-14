@@ -51,7 +51,7 @@ struct GridItem: View {
         self.textInput = textInput
         initFunction = 1
         self._leftTextValue = Binding.constant("")
-        self._rightTextValue = Binding.constant("")
+        self._rightTextValue = rightTextValue
     }
     
     var body: some View {

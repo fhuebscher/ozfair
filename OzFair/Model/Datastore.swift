@@ -16,15 +16,18 @@ class Datastore {
     private let balanceUrl: URL
     private let friendsUrl: URL
     private let groupsUrl: URL
+    private let expenseUrl: URL
     var balance: [String: Int] = [:]
     var friends: [String: String] = [:]
     var groups: [Int: GroupStruct] = [:]
+    var expenses: [Int: Expense] = [:]
     
     private init() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.balanceUrl = documentsDirectory.appendingPathComponent("balance.plist")
         self.friendsUrl = documentsDirectory.appendingPathComponent("friends.plist")
         self.groupsUrl = documentsDirectory.appendingPathComponent("groups.plist")
+        self.expenseUrl = documentsDirectory.appendingPathComponent("expense.plist")
         
         if let balance = NSDictionary(contentsOf: balanceUrl) as? [String: Int] {
             self.balance = balance
@@ -34,7 +37,7 @@ class Datastore {
             self.friends = friends
         }
         
-        if var groups = NSDictionary(contentsOf: groupsUrl) as? [Int: GroupStruct] {
+        if let groups = NSDictionary(contentsOf: groupsUrl) as? [Int: GroupStruct] {
             print("here")
             self.groups = groups
         } else {
@@ -45,6 +48,10 @@ class Datastore {
             ]
             let dict = NSDictionary(dictionary: self.groups)
             dict.write(to: groupsUrl, atomically: true)
+        }
+        
+        if let expenses = NSDictionary(contentsOf: expenseUrl) as? [Int: Expense] {
+            self.expenses = expenses
         }
     }
     
@@ -64,5 +71,17 @@ class Datastore {
     
     func getGroups() -> [Int: GroupStruct] {
         return groups
+    }
+    
+    func getExpenses() -> [Int: Expense] {
+        return expenses
+    }
+    
+    func setExpense(expense: Expense, id: Int = -1) {
+        let idComp = id == -1 ? expenses.count : id
+        expenses[idComp] = expense
+        let dict = NSDictionary(dictionary: expenses)
+        print(expenses)
+        dict.write(to: expenseUrl, atomically: true)
     }
 }
