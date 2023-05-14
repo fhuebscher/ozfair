@@ -22,6 +22,7 @@ class Datastore: ObservableObject {
     @Published var friends: [String: String] = [:]
     @Published var groups: [Int: GroupStruct] = [:]
     @Published var expenses: [Int: Expense] = [:]
+    @Published var currentGroup: Int = 0
     
     private init() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -43,8 +44,8 @@ class Datastore: ObservableObject {
             self.groups = groups
         } else {
             self.groups = [
-                0: GroupStruct(name:"Fiji", amount: 1800.25, currency: 0),
-                1: GroupStruct(name:"Birthday Trip", amount: 765.23, currency: 0),
+                0: GroupStruct(name:"Birthday Trip", amount: 765.23, currency: 0),
+                1: GroupStruct(name:"Fiji", amount: 1800.25, currency: 0),
                 2: GroupStruct(name:"Japan Trip", amount: -1200.75, currency: 0),
             ]
             let dict = NSDictionary(dictionary: self.groups)
@@ -53,6 +54,20 @@ class Datastore: ObservableObject {
         
         if let expenses = NSDictionary(contentsOf: expenseUrl) as? [Int: Expense] {
             self.expenses = expenses
+        } else {
+            self.expenses = [
+                0: Expense(title:"Dinner", amount: 160.50, date: "12 May 2023", belongsTo: 1),
+                1: Expense(title:"Groceries", amount: 25.45, date: "11 May 2023", belongsTo: 1),
+                2: Expense(title:"Cinema", amount: 65.30, date: "05 May 2023", belongsTo: 2),
+                3: Expense(title:"Booze", amount: 180.50, date: "03 May 2023", belongsTo: 0),
+                4: Expense(title:"Ziplining", amount: 300.00, date: "02 May 2023", belongsTo: 2),
+                5: Expense(title:"Cake", amount: 42.15, date: "28 April 2023", belongsTo: 0),
+                6: Expense(title:"Fairy", amount: 420.60, date: "27 April 2023", belongsTo: 1),
+                7: Expense(title:"Resort", amount: 1249.23, date: "25 April 2023", belongsTo: 1),
+                8: Expense(title:"Sushi", amount: 120.00, date: "01 May 2023", belongsTo: 2),
+            ]
+            let dict = NSDictionary(dictionary: self.groups)
+            dict.write(to: groupsUrl, atomically: true)
         }
     }
     
@@ -74,8 +89,12 @@ class Datastore: ObservableObject {
         return groups
     }
     
-    func getExpenses() -> [Int: Expense] {
-        return expenses
+    func getExpenses(group: Int = -1) -> [Int: Expense] {
+        if group == -1 {
+            return expenses
+        } else {
+            return expenses.filter({ $0.value.belongsTo == group })
+        }
     }
     
     func setExpense(expense: Expense, id: Int = -1) {

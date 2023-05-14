@@ -12,6 +12,7 @@ struct NewExpensesPanel: View {
     @Environment(\.presentationMode) var presentationMode
     @State var title = ""
     @State var amount = ""
+    @ObservedObject var datastore = Datastore.shared
         
     var body: some View {
         ZStack {
@@ -46,7 +47,7 @@ struct NewExpensesPanel: View {
                         dateFormatter.dateFormat = "dd MMM yyyy"
                         let todayString = dateFormatter.string(from: Date())
                         if let amount = Double(amount) {
-                            let exp = Expense(title: title, amount: Double(amount), date: todayString)
+                            let exp = Expense(title: title, amount: Double(amount), date: todayString, belongsTo: datastore.currentGroup)
                             Datastore.shared.setExpense(expense: exp)
                             presentationMode.wrappedValue.dismiss()
                         } else {

@@ -215,12 +215,15 @@ struct TransferView: View {
   
 }
 
+var currentGroup: Int = 0
+
 struct GroupsView: View {
     @State var showPanel = false
     @ObservedObject var datastore = Datastore.shared
+    @State var selection = 0
     
     var body: some View {
-        VStack (alignment: .leading) {
+        ZStack (alignment: .bottomTrailing) {
             ScrollView {
                 VStack {
                     HStack {
@@ -244,11 +247,16 @@ struct GroupsView: View {
                     Spacer(minLength: 0)
                     
                     //Group Cards and pagination
-                    TabView {
-                        ForEach(Datastore.shared.getGroups().sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
-                            GroupCard(title: group.name, amount: group.amount)
+                    TabView(selection:$selection) {
+                        ForEach(datastore.getGroups().sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
+                            let expenses = datastore.getExpenses(group: id)
+                            let total = expenses.values.reduce(0, { $0 + $1.amount })
+                            GroupCard(title: group.name, amount: total).tag(id)
                         }
                         .padding(.horizontal, 20)
+                    }
+                    .onChange(of: selection) { newSelection in
+                        datastore.currentGroup = newSelection
                     }
                     .padding(.horizontal, -20)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -282,7 +290,7 @@ struct GroupsView: View {
                     //Expenses
                     ScrollViewReader { scrollViewProxy in // Wrap the VStack inside a ScrollViewReader
                         VStack {
-                            ForEach(datastore.expenses.sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
+                            ForEach(datastore.getExpenses(group: datastore.currentGroup).sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
                                 ListItem(title: expense.title, date: expense.date, amount: expense.amount)
                             }
                         }

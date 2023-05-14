@@ -22,8 +22,15 @@ struct Transaction: Identifiable {
 }
 
 struct Expense {
-    let id = UUID()
     let title: String
     let amount: Double
     let date: String
+    let belongsTo: Int
+    
+    init(title: String, amount: Double, date: String, belongsTo: Int) {
+        self.title = title
+        self.amount = amount
+        self.date = date
+        self.belongsTo = belongsTo
+    }
 }
