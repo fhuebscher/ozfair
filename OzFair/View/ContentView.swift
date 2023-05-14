@@ -43,6 +43,13 @@ struct ContentView: View {
 }
 
 struct HomeView: View {
+    //Transactions list
+    let transactions = [Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
+                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
+                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
+                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00)]
+        
+    
     var body: some View {
         
         // Whole stack
@@ -93,18 +100,27 @@ struct HomeView: View {
             .padding(.bottom, 10)
             
             VStack {
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                ForEach(transactions) { transaction in
+                    ListItem(title: transaction.title, date: transaction.date, amount: transaction.amount)
+                }
+             //Spacer(minLength: 10)// set a minimum length for the Spacer
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .top)
         .padding(.vertical, 15)
         .padding(.horizontal, 30)
         .background(Color.frameBG)
         // Whole Stack End
         
     }
+}
+
+//Transactions
+struct Transaction: Identifiable {
+    var id = UUID()
+    var title: String
+    var date: String
+    var amount: Double
 }
 
 struct TransferView: View {
