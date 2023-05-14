@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct GroupStruct {
+    let name: String
+    let amount: Double
+    let currency: Int
+}

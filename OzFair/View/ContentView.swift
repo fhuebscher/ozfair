@@ -94,8 +94,8 @@ struct HomeView: View {
             
             VStack {
                 ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                //ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                //ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -108,6 +108,8 @@ struct HomeView: View {
 }
 
 struct TransferView: View {
+    @State var amount = ""
+    
     var body: some View {
         
         // Whole stack
@@ -131,10 +133,10 @@ struct TransferView: View {
                 .padding(.vertical, 20)
             GridItem(title: "Spending Account")
             GridItem(title: "To")
-            GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0")
+            GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
             GridItem(title: "Today", leftIcon: "calendar")
             Spacer()
-            CustomButton(label: "Transfer Money")
+            CustomButton(label: "Transfer Money") {}
                 .padding(.bottom, 30)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -145,67 +147,81 @@ struct TransferView: View {
 }
 
 struct GroupsView: View {
+    @State var showPanel = true
+
     var body: some View {
         
-        // Whole stack
-        VStack(alignment: .leading) {
-            // Title
-            HStack {
-                VStack(alignment:.leading) {
-                    Text("Split payments")
-                        .fontWeight(.semibold)
-                        .font(.caption)
-                        .foregroundColor(.subheading)
-                        .lineSpacing(20)
-                    Text("Groups")
-                        .fontWeight(.semibold)
-                        .font(.largeTitle)
-                        .foregroundColor(.heading)
-                        .lineSpacing(38)
-                    
+        ZStack(alignment: .bottomTrailing) {
+            // Whole stack
+            VStack(alignment: .leading) {
+                // Title
+                HStack {
+                    VStack(alignment:.leading) {
+                        Text("Split payments")
+                            .fontWeight(.semibold)
+                            .font(.caption)
+                            .foregroundColor(.subheading)
+                            .lineSpacing(20)
+                        Text("Groups")
+                            .fontWeight(.semibold)
+                            .font(.largeTitle)
+                            .foregroundColor(.heading)
+                            .lineSpacing(38)
+                        
+                    }
+                    Spacer()
+                    CustomButton(label: "Settle up", icon: "dollarsign.square") {}
                 }
+                
+                TabView {
+                    ForEach(Datastore.shared.groups.sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
+                        GroupCard(title:group.name, amount: group.amount)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .onAppear {
+                    UIPageControl.appearance().currentPageIndicatorTintColor = .text
+                    UIPageControl.appearance().pageIndicatorTintColor = .fadedText
+                }
+                .padding(.horizontal, 0)
                 Spacer()
-                CustomButton(label: "Settle up", icon: "dollarsign.square")
+                // Recent Transactions
+                Text("Recent Expenses")
+                    .fontWeight(.semibold)
+                    .font(.headline)
+                    .foregroundColor(.text)
+                    .lineSpacing(20)
+                    .padding(.bottom, 20)
+                
+                Tabs(items: [
+                    ("Today", 38, true),
+                    ("This Week", 2, false),
+                    ("This Month", 2, false),
+                    ("6 Months", 2, false),
+                ])
+                .padding(.bottom, 10)
+                
+                VStack {
+                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                    ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 15)
+            .padding(.horizontal, 30)
+            .background(Color.frameBG)
             
-            TabView {
-                GroupCard(title:"Fiji", amount: 232.00)
-                GroupCard(title:"Fiji", amount: 232.00)
-                GroupCard(title:"Fiji", amount: 232.00)
+            CustomButton(label: "Settle up", icon: "dollarsign.square") {
+                showPanel = true
+                print("here")
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .onAppear {
-                UIPageControl.appearance().currentPageIndicatorTintColor = .text
-                UIPageControl.appearance().pageIndicatorTintColor = .fadedText
-            }
-            .padding(.horizontal, 0)
-            Spacer()
-            // Recent Transactions
-            Text("Recent Transactions")
-            .fontWeight(.semibold)
-            .font(.headline)
-            .foregroundColor(.text)
-            .lineSpacing(20)
-            .padding(.bottom, 20)
-            
-            Tabs(items: [
-                ("Today", 38, true),
-                ("This Week", 2, false),
-                ("This Month", 2, false),
-                ("6 Months", 2, false),
-            ])
-            .padding(.bottom, 10)
-            
-            VStack {
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-                ListItem(title: "To Magnus", date: "08 May 2023", amount: 59.00)
-            }
+                .sheet(isPresented: $showPanel) {
+                    NewExpensesPanel()
+                }
+                .padding(.trailing, 25)
+                .padding(.bottom, 25)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, 15)
-        .padding(.horizontal, 30)
-        .background(Color.frameBG)
     }
 }
 

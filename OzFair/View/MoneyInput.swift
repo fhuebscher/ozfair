@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 
 struct MoneyInput: View {
-    @State private var text = ""
+    @Binding var value: String
+    let text: String
     
     var body: some View {
-        TextField("$0.00", text: $text)
+        TextField(text, text: $value)
             .keyboardType(.decimalPad)
             .frame(width: 120)
             .multilineTextAlignment(.trailing)

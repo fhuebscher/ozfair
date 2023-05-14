@@ -29,6 +29,7 @@
 		5D12472C2A0A119600AEDBA5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472B2A0A119600AEDBA5 /* Button.swift */; };
 		5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */; };
 		5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */; };
+		5D76F1BA2A10C7840048AA14 /* NewExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76F1B92A10C7840048AA14 /* NewExpense.swift */; };
 		AD91C3514B19DE9BB9C5B716 /* Pods_OzFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		5D12472B2A0A119600AEDBA5 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCard.swift; sourceTree = "<group>"; };
 		5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircleStack.swift; sourceTree = "<group>"; };
+		5D76F1B92A10C7840048AA14 /* NewExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpense.swift; sourceTree = "<group>"; };
 		918FE5982CC27AEFDDFCC208 /* Pods-OzFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.debug.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.debug.xcconfig"; sourceTree = "<group>"; };
 		BED5D49CEF0DF812FA9C069A /* Pods-OzFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.release.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.release.xcconfig"; sourceTree = "<group>"; };
 		C9A416F8BBF22FC217362CA5 /* Pods_OzFair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OzFair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */,
 				5D12472B2A0A119600AEDBA5 /* Button.swift */,
 				5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */,
+				5D76F1B92A10C7840048AA14 /* NewExpense.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,7 +169,6 @@
 				918FE5982CC27AEFDDFCC208 /* Pods-OzFair.debug.xcconfig */,
 				BED5D49CEF0DF812FA9C069A /* Pods-OzFair.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -290,6 +292,7 @@
 				5D0349BD2A09150E00D5E43D /* ContentView.swift in Sources */,
 				5D12471C2A09C07100AEDBA5 /* Helpers.swift in Sources */,
 				5D12472E2A0A19CC00AEDBA5 /* GroupCard.swift in Sources */,
+				5D76F1BA2A10C7840048AA14 /* NewExpense.swift in Sources */,
 				5D1247262A09D63900AEDBA5 /* List.swift in Sources */,
 				5D1247282A09F01000AEDBA5 /* Grid.swift in Sources */,
 				1D230AAF2A108B6C009E074A /* ConverterInteractor.swift in Sources */,

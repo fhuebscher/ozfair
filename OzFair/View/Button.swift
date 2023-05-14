@@ -11,17 +11,34 @@ import SwiftUI
 struct CustomButton: View {
     let label: String
     let icon: String?
-    var padding: CGFloat
+    var padding: CGFloat = 10
+    let action: () -> Void
+    let fontSize: Font
+    var color: Color = Color.navActive
     
-    init(label: String, icon: String? = nil) {
+    init(label: String, icon: String? = nil, action: @escaping () -> Void) {
         self.label = label
         self.icon = icon
         padding = icon == nil ? 15 : 10
+        self.action = action
+        self.fontSize = .caption
+    }
+    
+    init(label: String, color: Color, fontSize: Font? = nil, action: @escaping () -> Void) {
+        self.label = label
+        if let fontSize = fontSize {
+            self.fontSize = fontSize
+        } else {
+            self.fontSize = .body
+        }
+        self.action = action
+        self.icon = nil
+        self.color = color
     }
     
     var body: some View {
         Button(action: {
-            // Action to perform when button is tapped
+            action()
         }) {
             HStack {
                 if let icon = icon {
@@ -31,13 +48,13 @@ struct CustomButton: View {
                     Text(label)
                         .font(.caption)
                         .fontWeight(.semibold)
-                        .foregroundColor(.navActive)
+                        .foregroundColor(color)
                         .multilineTextAlignment(.center)
                 } else {
                     Spacer()
                     Text(label)
                         .fontWeight(.semibold)
-                        .foregroundColor(.navActive)
+                        .foregroundColor(color)
                         .multilineTextAlignment(.center)
                     Spacer()
                 }
