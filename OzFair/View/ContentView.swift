@@ -47,11 +47,8 @@ struct HomeView: View {
     //Transactions list
     let transactions = [Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
                         Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
                         Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00)]
-        
+    
     
     var body: some View {
         
@@ -70,13 +67,13 @@ struct HomeView: View {
                         .font(.largeTitle)
                         .foregroundColor(.heading)
                         .lineSpacing(38)
-
+                    
                 }
-                Spacer()
+                Spacer(minLength: 50)
                 // Tabs
                 Tabs(items: [("Accounts", 58, true), ("Cards", 38, false)])
-                Spacer()
-
+                Spacer(minLength: 50)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         BalanceCard(title: "Spending 1", amount: 2000.05, bgColor: .cardColor1)
@@ -87,8 +84,8 @@ struct HomeView: View {
                     .padding(20)
                 }
                 .padding(-30)
-
-                Spacer()
+                
+                Spacer(minLength: 50)
                 // Recent Transactions
                 Text("Recent Transactions")
                     .fontWeight(.semibold)
@@ -96,7 +93,7 @@ struct HomeView: View {
                     .foregroundColor(.text)
                     .lineSpacing(20)
                     .padding(.bottom, 20)
-
+                
                 Tabs(items: [
                     ("Today", 38, true),
                     ("This Week", 2, false),
@@ -104,12 +101,11 @@ struct HomeView: View {
                     ("6 Months", 2, false),
                 ])
                 .padding(.bottom, 10)
-
+                
                 VStack {
                     ForEach(transactions) { transaction in
                         ListItem(title: transaction.title, date: transaction.date, amount: transaction.amount)
                     }
-                    //Spacer(minLength: 10)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .top)
