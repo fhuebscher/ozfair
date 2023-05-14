@@ -1,14 +1,13 @@
-# Podfile
+# brew install cocoapods
+# sudo arch -x86_64 gem install ffi
+# arch -x86_64 pod install
 
-workspace 'OzFair'
+platform :ios, '15.6'
 
 target 'OzFair' do
-    pod 'RxSwift', '6.6.0'
-    pod 'RxCocoa', '6.6.0'
-end
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
 
-# RxTest and RxBlocking make the most sense in the context of unit/integration tests
-# target 'OzFair' do
-#     pod 'RxBlocking', '6.6.0'
-#     pod 'RxTest', '6.6.0'
-# end
+  # Pods for OzFair
+  pod 'RxSwift', '6.5.0'
+end
