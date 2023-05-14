@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selectedTab: NavTabs = .transfer
+    @State var selectedTab: NavTabs = .home
     
     var body: some View {
         
@@ -34,8 +34,8 @@ struct ContentView: View {
 struct HomeView: View {
     //Transactions list
     let transactions = [Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00)]
+                        Transaction(title: "To Fabian", date: "01 May 2023", amount: 123.40),
+                        Transaction(title: "To Joel", date: "28 April 2023", amount: 21.60)]
     
     
     var body: some View {
