@@ -89,6 +89,14 @@ class Datastore: ObservableObject {
         return groups
     }
     
+    func getCurrentGroup() -> GroupStruct {
+        if let group = groups[currentGroup] {
+            return group
+        } else {
+            return GroupStruct(name: "Default", currency: 0)
+        }
+    }
+    
     func getExpenses(group: Int = -1) -> [Int: Expense] {
         if group == -1 {
             return expenses

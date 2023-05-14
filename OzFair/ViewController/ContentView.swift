@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selectedTab: NavTabs = .home
+    @State var selectedTab: NavTabs = .transfer
     
     var body: some View {
         
@@ -153,6 +153,11 @@ struct TransferView: View {
                 .padding(.vertical, 20)
             HStack {
                 Text("From: ")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.fadedText)
+                    .font(.callout)
+                    .lineSpacing(24)
+                    .padding(.trailing, 10)
                 Spacer()
                 Picker("Select Account", selection: $selectedAccount) {
                     ForEach(balances.indices, id: \.self) { index in
@@ -160,13 +165,22 @@ struct TransferView: View {
                         Text("\(balance.title) - $\(String(format: "%.2f", balance.amount))")
                     }
                 }
+                .accentColor(.primary)
+
             }
-            .padding(.all, 5)
+            .padding(.vertical, 10)
+            .padding(.leading, 20)
+            .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
             .frame(width: .infinity, alignment: .center)
             HStack {
                 Text("To: ")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.fadedText)
+                    .font(.callout)
+                    .lineSpacing(24)
+                    .padding(.trailing, 10)
                 Spacer()
                 Picker("Select Recipient", selection: $selectedCurrency) {
                     ForEach(accounts.indices, id: \.self) { index in
@@ -174,8 +188,11 @@ struct TransferView: View {
                         Text("\(account["name"]!) - \(account["currency"]!)")
                     }
                 }
+                .accentColor(.primary)
             }
-            .padding(.all, 5)
+            .padding(.vertical, 10)
+            .padding(.leading, 20)
+            .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
             .frame(width: .infinity, alignment: .center)
@@ -201,10 +218,11 @@ struct TransferView: View {
             }
                 .padding(.bottom, 30)
                 .alert(isPresented: $showingConfirmation) {
-                                Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
-                                        // perform the transfer action here
-                                    }, secondaryButton: .cancel())
-                            }
+                    Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
+                            // perform the transfer action here
+                        }, secondaryButton: .cancel())
+                }
+            Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 15)
