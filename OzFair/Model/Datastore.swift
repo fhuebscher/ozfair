@@ -8,19 +8,20 @@
 // TODO probably not used
 
 import Foundation
+import Combine
 
-// Singleton Datastore that gets and sets scores and settings
-class Datastore {
+class Datastore: ObservableObject {
     static let shared = Datastore()
     
     private let balanceUrl: URL
     private let friendsUrl: URL
     private let groupsUrl: URL
     private let expenseUrl: URL
-    var balance: [String: Int] = [:]
-    var friends: [String: String] = [:]
-    var groups: [Int: GroupStruct] = [:]
-    var expenses: [Int: Expense] = [:]
+    
+    @Published var balance: [String: Int] = [:]
+    @Published var friends: [String: String] = [:]
+    @Published var groups: [Int: GroupStruct] = [:]
+    @Published var expenses: [Int: Expense] = [:]
     
     private init() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

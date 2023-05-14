@@ -158,6 +158,7 @@ struct TransferView: View {
 
 struct GroupsView: View {
     @State var showPanel = false
+    @ObservedObject var datastore = Datastore.shared
 
     var body: some View {
         
@@ -213,7 +214,7 @@ struct GroupsView: View {
                 .padding(.bottom, 10)
                 
                 VStack {
-                    ForEach(Datastore.shared.getExpenses().sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
+                    ForEach(datastore.expenses.sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
                         ListItem(title: expense.title, date: expense.date, amount: expense.amount)
                     }
                 }
