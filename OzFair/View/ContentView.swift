@@ -228,7 +228,9 @@ struct GroupsView: View {
 
 struct MoreView: View {
     var body: some View {
+        Spacer()
         Text("More")
+        Spacer()
     }
 }
 
