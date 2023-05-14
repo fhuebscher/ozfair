@@ -44,9 +44,9 @@ class Datastore: ObservableObject {
             self.groups = groups
         } else {
             self.groups = [
-                0: GroupStruct(name:"Birthday Trip", amount: 765.23, currency: 0),
-                1: GroupStruct(name:"Fiji", amount: 1800.25, currency: 0),
-                2: GroupStruct(name:"Japan Trip", amount: -1200.75, currency: 0),
+                0: GroupStruct(name:"Birthday Trip", currency: 0),
+                1: GroupStruct(name:"Fiji", currency: 0),
+                2: GroupStruct(name:"Japan Trip", currency: 0),
             ]
             let dict = NSDictionary(dictionary: self.groups)
             dict.write(to: groupsUrl, atomically: true)

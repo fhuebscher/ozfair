@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selectedTab: NavTabs = .groups
+    @State var selectedTab: NavTabs = .home
     
     var body: some View {
         
