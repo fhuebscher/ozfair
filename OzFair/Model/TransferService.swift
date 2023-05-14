@@ -32,7 +32,7 @@ import Foundation
 //    }
 //}
 
-let balances = [
+var balances = [
     BalanceCard(title: "Spending 1 AUD", amount: 2000.05, bgColor: .cardColor1, from: "AUD"),
     BalanceCard(title: "Spending 2 USD", amount: 100.23, bgColor: .cardColor2, from: "USD"),
     BalanceCard(title: "Spending 3 USD", amount: 24.50, bgColor: .cardColor2, from: "USD"),

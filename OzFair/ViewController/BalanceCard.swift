@@ -11,7 +11,7 @@ import SwiftUI
 struct BalanceCard: View, Identifiable, Equatable, Hashable {
     let id = UUID()
     let title: String
-    let amount: Double
+    var amount: Double
     let bgColor: Color
     let from: String
     

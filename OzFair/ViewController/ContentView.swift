@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selectedTab: NavTabs = .home
-//    @ObservedObject var transferViewModel = TransferViewModel()
+    @State var selectedTab: NavTabs = .groups
     
     var body: some View {
         
@@ -198,6 +197,7 @@ struct TransferView: View {
                 selectedAccount = 0
                 selectedCurrency = 0
                 showingConfirmation = true
+                balances[$selectedAccount.wrappedValue].amount -= Double(amount) ?? 100.0
             }
                 .padding(.bottom, 30)
                 .alert(isPresented: $showingConfirmation) {
@@ -218,84 +218,109 @@ struct TransferView: View {
 struct GroupsView: View {
     @State var showPanel = false
     @ObservedObject var datastore = Datastore.shared
-
+    
     var body: some View {
-        
-        ZStack(alignment: .bottomTrailing) {
-            // Whole stack
-            VStack(alignment: .leading) {
-                // Title
-                HStack {
-                    VStack(alignment:.leading) {
-                        Text("Split payments")
-                            .fontWeight(.semibold)
-                            .font(.caption)
-                            .foregroundColor(.subheading)
-                            .lineSpacing(20)
-                        Text("Groups")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .foregroundColor(.heading)
-                            .lineSpacing(38)
-                        
-                    }
-                    Spacer()
-                    CustomButton(label: "Settle up", icon: "dollarsign.square") {}
-                        .shadow(radius:3, x:2, y:2)
-                }
-                
-                TabView {
-                    ForEach(Datastore.shared.getGroups().sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
-                        GroupCard(title:group.name, amount: group.amount)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .onAppear {
-                    UIPageControl.appearance().currentPageIndicatorTintColor = .text
-                    UIPageControl.appearance().pageIndicatorTintColor = .fadedText
-                }
-                .padding(.horizontal, 0)
-                Spacer()
-                // Recent Transactions
-                Text("Recent Expenses")
-                    .fontWeight(.semibold)
-                    .font(.headline)
-                    .foregroundColor(.text)
-                    .lineSpacing(20)
-                    .padding(.bottom, 20)
-                
-                Tabs(items: [
-                    ("Today", 38, true),
-                    ("This Week", 2, false),
-                    ("This Month", 2, false),
-                    ("6 Months", 2, false),
-                ])
-                .padding(.bottom, 10)
-                
+        VStack (alignment: .leading) {
+            ScrollView {
                 VStack {
-                    ForEach(datastore.expenses.sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
-                        ListItem(title: expense.title, date: expense.date, amount: expense.amount)
+                    HStack {
+                        VStack(alignment:.leading) {
+                            Text("Split payments")
+                                .fontWeight(.semibold)
+                                .font(.caption)
+                                .foregroundColor(.subheading)
+                                .lineSpacing(20)
+                            Text("Groups")
+                                .fontWeight(.semibold)
+                                .font(.largeTitle)
+                                .foregroundColor(.heading)
+                                .lineSpacing(38)
+                            
+                        }
+                        Spacer()
+                        CustomButton(label: "Settle up", icon: "dollarsign.square") {}
+                            .shadow(radius:3, x:2, y:2)
                     }
+                    Spacer(minLength: 0)
+                    
+                    //Group Cards and pagination
+                    TabView {
+                        ForEach(Datastore.shared.getGroups().sorted(by: { $0.key < $1.key }), id: \.key) { id, group in
+                            GroupCard(title: group.name, amount: group.amount)
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    .padding(.horizontal, -20)
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .frame(height: 300) // Set height to a fixed value
+                    .onAppear {
+                        UIPageControl.appearance().currentPageIndicatorTintColor = .text
+                        UIPageControl.appearance().pageIndicatorTintColor = .fadedText
+                    }
+                    .background(Color.clear)
+                    .id("TabView") // Add an ID to the TabView
+                    // Recent Transactions
+
+                    HStack{
+                        Text("Recent Expenses")
+                            .fontWeight(.semibold)
+                            .font(.headline)
+                            .foregroundColor(.text)
+                            .lineSpacing(20)
+                            .padding(.bottom, 20)
+                        Spacer()
+                    }
+                    
+                    Tabs(items: [
+                        ("Today", 38, true),
+                        ("This Week", 2, false),
+                        ("This Month", 2, false),
+                        ("6 Months", 2, false),
+                    ])
+                    .padding(.bottom, 10)
+                    
+                    //Expenses
+                    ScrollViewReader { scrollViewProxy in // Wrap the VStack inside a ScrollViewReader
+                        VStack {
+                            ForEach(datastore.expenses.sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
+                                ListItem(title: expense.title, date: expense.date, amount: expense.amount)
+                            }
+                        }
+                        .id("List") // Add an ID to the VStack
+                        .onAppear {
+                            // Scroll to the bottom of the list when it first appears
+                            withAnimation {
+                                scrollViewProxy.scrollTo("List", anchor: .bottom)
+                            }
+                        }
+                    }
+                    
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 15)
+                .padding(.horizontal, 30)
+                
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.vertical, 15)
-            .padding(.horizontal, 30)
-            .background(Color.frameBG)
-            
-            CustomButton(label: "Add Expense", icon: "plus") {
-                showPanel = true
-                print("here")
-            }
+            HStack {
+                Spacer()
+                CustomButton(label: "Add Expense", icon: "plus") {
+                    showPanel = true
+                    print("here")
+                }
                 .sheet(isPresented: $showPanel) {
                     NewExpensesPanel()
                 }
                 .padding(.trailing, 25)
                 .padding(.bottom, 25)
                 .shadow(radius:3, x:2, y:2)
+
+            }
         }
+        .background(Color.frameBG)
     }
 }
+
+
 
 struct MoreView: View {
     var body: some View {
