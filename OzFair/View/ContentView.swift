@@ -73,14 +73,16 @@ struct HomeView: View {
             Tabs(items: [("Accounts", 58, true), ("Cards", 38, false)])
             Spacer()
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             BalanceCard(title: "Spending 1", amount: 2000.05, bgColor: .cardColor1)
                             BalanceCard(title: "Spending 2", amount: 100.23, bgColor: .cardColor2)
                             BalanceCard(title: "Spending 3", amount: 24.50, bgColor: .cardColor2)
                             BalanceCard(title: "Spending 4", amount: 1500.45, bgColor: .cardColor2)
                         }
+                        .padding(20)
                     }
+            .padding(-30)
             
             Spacer()
             // Recent Transactions
