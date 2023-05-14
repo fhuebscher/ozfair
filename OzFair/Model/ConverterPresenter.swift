@@ -44,46 +44,46 @@ enum ExchangeSource {
     case to
 }
 
-class ConverterPresenter {
+// class ConverterPresenter {
     
-    weak var view: ConverterView?
+//     weak var view: ConverterView?
     
-    fileprivate var interactorInput: ConverterInteractorInput
+//     fileprivate var interactorInput: ConverterInteractorInput
     
-    fileprivate var exchangeValue: (from: Variable<ExchangeMoney>, to: Variable<ExchangeMoney>) = (
-        Variable<ExchangeMoney>((.EUR, 0, 1, .from, true)),
-        Variable<ExchangeMoney>((.EUR, 0, 1, .to, false))
-    )
+//     fileprivate var exchangeValue: (from: Variable<ExchangeMoney>, to: Variable<ExchangeMoney>) = (
+//         Variable<ExchangeMoney>((.EUR, 0, 1, .from, true)),
+//         Variable<ExchangeMoney>((.EUR, 0, 1, .to, false))
+//     )
     
-    init(interactorInput: ConverterInteractorInput) {
-        self.interactorInput = interactorInput
-    }
+//     init(interactorInput: ConverterInteractorInput) {
+//         self.interactorInput = interactorInput
+//     }
     
-    fileprivate func getRates(from info: RatesMoneyInfo, source: ExchangeSource, exchangeValue: ExchangeMoney) -> [RatesDisplayable] {
-        var page = -1
-        return info.rates.flatMap({ (rateDTO) in
-            guard let currency = rateDTO.currency,
-                let rate = rateDTO.rate,
-                let money = info.money[currency] else {
-                    return nil
-            }
+//     fileprivate func getRates(from info: RatesMoneyInfo, source: ExchangeSource, exchangeValue: ExchangeMoney) -> [RatesDisplayable] {
+//         var page = -1
+//         return info.rates.flatMap({ (rateDTO) in
+//             guard let currency = rateDTO.currency,
+//                 let rate = rateDTO.rate,
+//                 let money = info.money[currency] else {
+//                     return nil
+//             }
             
-            page += 1
-            return RatesDisplayable(
-                page: page,
-                currency: currency,
-                rate: rate,
-                money: money,
-                source: source,
-                exchange: (
-                    currency: exchangeValue.currency,
-                    value: exchangeValue.value,
-                    rate: exchangeValue.rate,
-                    source: exchangeValue.source,
-                    active: exchangeValue.active
-                )
-            )
-        })
-    }
+//             page += 1
+//             return RatesDisplayable(
+//                 page: page,
+//                 currency: currency,
+//                 rate: rate,
+//                 money: money,
+//                 source: source,
+//                 exchange: (
+//                     currency: exchangeValue.currency,
+//                     value: exchangeValue.value,
+//                     rate: exchangeValue.rate,
+//                     source: exchangeValue.source,
+//                     active: exchangeValue.active
+//                 )
+//             )
+//         })
+//     }
     
-}
+// }

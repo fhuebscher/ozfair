@@ -9,43 +9,43 @@
 import Foundation
 import RxSwift
 
-typealias RatesMoneyInfo = (rates: Rates, money: Money)
+// typealias RatesMoneyInfo = (rates: Rates, money: Money)
 
-// can be placed inside the controller
-// TODO fix missing components
+// // can be placed inside the controller
+// // TODO fix missing components
 
-class ConverterInteractor {
+// class ConverterInteractor {
     
-    // TODO add interations
+//     // TODO add interations
     
-    private var exchangeRateConverter: ExchangeRateConverter
-    private var transferProvider: TransferService
+//     private var exchangeRateConverter: ExchangeRateConverter
+//     private var transferProvider: TransferService
      
-    init(exchangeRateConverter: ExchangeRateConverter, transferProvider: TransferProvider) {
-        self.exchangeRateConverter = exchangeRateConverter
-        self.transferProvider = transferProvider
-    }
+//     init(exchangeRateConverter: ExchangeRateConverter, transferProvider: TransferProvider) {
+//         self.exchangeRateConverter = exchangeRateConverter
+//         self.transferProvider = transferProvider
+//     }
     
-    func getRates() {
-        # from getRates -> receiveRates
+//     func getRates() {
+//         # from getRates -> receiveRates
         
-        let timerObservable = Observable<Int>.interval(30, scheduler: MainScheduler.instance).startWith(0)
-        let ratesObservable = self.exchangeRateConverter.getRates()
+//         let timerObservable = Observable<Int>.interval(30, scheduler: MainScheduler.instance).startWith(0)
+//         let ratesObservable = self.exchangeRateConverter.getRates()
             
-        let statusObservable = Observable.combineLatest(ratesObservable, timerObservable)
-            .flatMap({ [unowned self] (rates, timer) -> Observable<RatesMoneyInfo> in
-                self.transferProvider.getMoney().flatMap({ (money) -> Observable<RatesMoneyInfo> in
-                    .just((rates, money))
-                })
-            })
+//         let statusObservable = Observable.combineLatest(ratesObservable, timerObservable)
+//             .flatMap({ [unowned self] (rates, timer) -> Observable<RatesMoneyInfo> in
+//                 self.transferProvider.getMoney().flatMap({ (money) -> Observable<RatesMoneyInfo> in
+//                     .just((rates, money))
+//                 })
+//             })
         
-        // TODO connect statusObservable with ConverterPresenter
-    }
+//         // TODO connect statusObservable with ConverterPresenter
+//     }
     
 
-    func exchangeRequested(from: ExchangeMoney, to: ExchangeMoney) {
-        let exchangeRequest = ExchangeRequest(from: from.currency, to: to.currency, value: from.value, rateFrom: from.rate, rateTo: to.rate)
+//     func exchangeRequested(from: ExchangeMoney, to: ExchangeMoney) {
+//         let exchangeRequest = ExchangeRequest(from: from.currency, to: to.currency, value: from.value, rateFrom: from.rate, rateTo: to.rate)
         
-        self.transferProvider.process(request: exchangeRequest)
-    }
-}
+//         self.transferProvider.process(request: exchangeRequest)
+//     }
+// }
