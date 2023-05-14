@@ -206,7 +206,7 @@ struct TransferView: View {
                                     }, secondaryButton: .cancel())
                             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxHeight: .infinity, alignment: .leading)
         .padding(.vertical, 15)
         .padding(.horizontal, 30)
         .background(Color.frameBG)
