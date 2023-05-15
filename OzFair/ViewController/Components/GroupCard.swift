@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Group Card View - see Figma Prototype
 struct GroupCard: View {
     let title: String
     let amount: Double
