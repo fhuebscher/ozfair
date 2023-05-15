@@ -35,11 +35,7 @@ class Datastore: ObservableObject {
         if let accounts = NSDictionary(contentsOf: accountsUrl) as? [Int: Account] {
             self.accounts = accounts
         } else {
-            self.accounts = [
-                0: Account(title: "Spending 1 AUD", amount: 259.50, currency: "AUD"),
-                1: Account(title: "Spending 2 USD", amount: 400.25, currency: "USD"),
-                2: Account(title: "Saving 1 USD", amount: 2250.00, currency: "USD"),
-            ]
+            self.accounts = accountsMock
             let dict = NSDictionary(dictionary: self.accounts)
             dict.write(to: accountsUrl, atomically: true)
         }
@@ -47,11 +43,7 @@ class Datastore: ObservableObject {
         if let transactions = NSDictionary(contentsOf: transactionsUrl) as? [Int: Transaction] {
             self.transactions = transactions
         } else {
-            self.transactions = [
-                0: Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00, belongsTo: 0),
-                1: Transaction(title: "To Fabian", date: "01 May 2023", amount: 123.40, belongsTo: 1),
-                2: Transaction(title: "To Joel", date: "28 April 2023", amount: 21.60, belongsTo: 2)
-            ]
+            self.transactions = transactionsMock
             let dict = NSDictionary(dictionary: self.transactions)
             dict.write(to: transactionsUrl, atomically: true)
         }
@@ -59,11 +51,7 @@ class Datastore: ObservableObject {
         if let groups = NSDictionary(contentsOf: groupsUrl) as? [Int: GroupStruct] {
             self.groups = groups
         } else {
-            self.groups = [
-                0: GroupStruct(name:"Birthday Trip", currency: 0),
-                1: GroupStruct(name:"Fiji", currency: 0),
-                2: GroupStruct(name:"Japan Trip", currency: 0),
-            ]
+            self.groups = groupsMock
             let dict = NSDictionary(dictionary: self.groups)
             dict.write(to: groupsUrl, atomically: true)
         }
@@ -71,17 +59,7 @@ class Datastore: ObservableObject {
         if let expenses = NSDictionary(contentsOf: expenseUrl) as? [Int: Expense] {
             self.expenses = expenses
         } else {
-            self.expenses = [
-                0: Expense(title:"Dinner", amount: 160.50, date: "12 May 2023", belongsTo: 1),
-                1: Expense(title:"Groceries", amount: 25.45, date: "11 May 2023", belongsTo: 1),
-                2: Expense(title:"Cinema", amount: 65.30, date: "05 May 2023", belongsTo: 2),
-                3: Expense(title:"Booze", amount: 180.50, date: "03 May 2023", belongsTo: 0),
-                4: Expense(title:"Ziplining", amount: 300.00, date: "02 May 2023", belongsTo: 2),
-                5: Expense(title:"Cake", amount: 42.15, date: "28 April 2023", belongsTo: 0),
-                6: Expense(title:"Fairy", amount: 420.60, date: "27 April 2023", belongsTo: 1),
-                7: Expense(title:"Resort", amount: 1249.23, date: "25 April 2023", belongsTo: 1),
-                8: Expense(title:"Sushi", amount: 120.00, date: "01 May 2023", belongsTo: 2),
-            ]
+            self.expenses = expensesMock
             let dict = NSDictionary(dictionary: self.expenses)
             dict.write(to: expenseUrl, atomically: true)
         }
@@ -114,8 +92,6 @@ class Datastore: ObservableObject {
         if group == -1 {
             return transactions
         } else {
-            print(transactions.filter({ $0.value.belongsTo == group }))
-            print(group)
             return transactions.filter({ $0.value.belongsTo == group })
         }
     }

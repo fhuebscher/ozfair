@@ -33,6 +33,7 @@
 		5D1247302A0A298500AEDBA5 /* UserCircleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */; };
 		5D76F1BA2A10C7840048AA14 /* NewExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76F1B92A10C7840048AA14 /* NewExpense.swift */; };
 		5D76F1BE2A11A4470048AA14 /* SettleUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76F1BD2A11A4470048AA14 /* SettleUp.swift */; };
+		5D76F1C12A11F87E0048AA14 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76F1C02A11F87E0048AA14 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircleStack.swift; sourceTree = "<group>"; };
 		5D76F1B92A10C7840048AA14 /* NewExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpense.swift; sourceTree = "<group>"; };
 		5D76F1BD2A11A4470048AA14 /* SettleUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleUp.swift; sourceTree = "<group>"; };
+		5D76F1C02A11F87E0048AA14 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		918FE5982CC27AEFDDFCC208 /* Pods-OzFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.debug.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.debug.xcconfig"; sourceTree = "<group>"; };
 		BED5D49CEF0DF812FA9C069A /* Pods-OzFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzFair.release.xcconfig"; path = "Target Support Files/Pods-OzFair/Pods-OzFair.release.xcconfig"; sourceTree = "<group>"; };
 		D82BF8767DBC1BFC4EDB779A /* libPods-OzFair.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OzFair.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 		5D0349AA2A090B3700D5E43D /* OzFair */ = {
 			isa = PBXGroup;
 			children = (
+				5D76F1BF2A11F8670048AA14 /* Mockups */,
 				0B6777822A1111270099B7F7 /* Info.plist */,
 				0B67777B2A1110FB0099B7F7 /* Fonts */,
 				5D12470B2A09BFA000AEDBA5 /* Model */,
@@ -169,6 +172,14 @@
 				5D12471D2A09C26600AEDBA5 /* Colors.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5D76F1BF2A11F8670048AA14 /* Mockups */ = {
+			isa = PBXGroup;
+			children = (
+				5D76F1C02A11F87E0048AA14 /* Data.swift */,
+			);
+			path = Mockups;
 			sourceTree = "<group>";
 		};
 		E3ABEED2C15739C0F254403A /* Pods */ = {
@@ -291,6 +302,7 @@
 				5D1247242A09CD3900AEDBA5 /* BalanceCard.swift in Sources */,
 				5D76F1BE2A11A4470048AA14 /* SettleUp.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
+				5D76F1C12A11F87E0048AA14 /* Data.swift in Sources */,
 				5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,
 				1D230AB52A108B7E009E074A /* TransferService.swift in Sources */,
