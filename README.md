@@ -1,9 +1,10 @@
-OzFair: The neobank app with the possibility to split expenses directly.
+# OzFair
+## The neobank app with the possibility to split expenses directly.
 
-Florian Hübscher, 14039008
-Magnus Andersen, 14188674
-Joel Weber, 24651248
-Fabian Roth, 14226967
+- Florian Hübscher, 14039008
+- Magnus Andersen, 14188674
+- Joel Weber, 24651248
+- Fabian Roth, 14226967
 
 https://github.com/fhuebscher/ozfair
 
