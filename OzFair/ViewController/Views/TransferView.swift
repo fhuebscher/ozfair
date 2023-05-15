@@ -147,6 +147,8 @@ struct TransferView: View {
                     
                     datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
                     
+                    self.showingConfirmation = false
+                    
                 }, secondaryButton: .cancel())
             }
             
