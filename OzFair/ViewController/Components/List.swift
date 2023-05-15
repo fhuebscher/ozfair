@@ -55,9 +55,11 @@ struct ListItem: View {
                 .lineSpacing(24)
         }
         .padding(.top, 10)
-        RoundedRectangle(cornerRadius: 1)
-            .frame(width: .infinity, height: 1)
-            .foregroundColor(.fadedText)
-    }
+        HStack {
+            RoundedRectangle(cornerRadius: 1)
+                .frame(height: 1.0)
+                .foregroundColor(.fadedText)
+            Spacer() // Takes up all the available horizontal space
+        }    }
 }
 
