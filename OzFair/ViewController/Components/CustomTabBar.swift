@@ -23,6 +23,7 @@ struct CustomTabBar: View {
 
         HStack (spacing: 0){
             Spacer(minLength: 30)
+            // Home Tab
             Button {
                 selectedTab = .home
             } label: {
@@ -47,6 +48,7 @@ struct CustomTabBar: View {
                 
             }
             Spacer()
+            // Transfer Tab
             Button {
                 selectedTab = .transfer
             } label: {
@@ -70,6 +72,7 @@ struct CustomTabBar: View {
                 
             }
             Spacer()
+            // Groups Tab
             Button {
                 selectedTab = .groups
             } label: {
@@ -93,6 +96,7 @@ struct CustomTabBar: View {
                 
             }
             Spacer()
+            // More Tab
             Button {
                 selectedTab = .more
             } label: {

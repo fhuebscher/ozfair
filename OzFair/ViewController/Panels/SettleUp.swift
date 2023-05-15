@@ -10,6 +10,7 @@ import SwiftUI
 
 // Structure for SettleUp Panel
 struct SettleUpPanel: View {
+    // Initialize state variables
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var datastore = Datastore.shared
     
