@@ -107,7 +107,15 @@ struct TransferView: View {
             .cornerRadius(10)
             .frame(width: .infinity, alignment: .center)
             let currentAccount = datastore.getAccount(id: $selectedAccount.wrappedValue)
-            GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
+            GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(
+                get: {
+                    return amount
+                },
+                set: { newValue in
+                    nonNegativeNumber(text: &amount, newValue: newValue)
+                    limitDecimalDigits(text: &amount, maxDigits: 2)
+                }
+            ))
             GridItem(title: "To  (in \(currencyMappings.indices.contains($selectedCurrency.wrappedValue) ? currencyMappings[$selectedCurrency.wrappedValue]["currency"] ?? "AU$" : ""))", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(get: {
                 let amountDouble = Double(amount) ?? -1.0
                 let selectedCurrency = currentAccount.currency

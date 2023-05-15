@@ -37,7 +37,16 @@ struct NewExpensesPanel: View {
             VStack {
                 // Grid items setup
                 GridItem(title: "Title", leftTextInput: true, leftTextValue: $title)
-                GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
+                GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(
+                    get: {
+                        return amount
+                    },
+                    set: { newValue in
+                        nonNegativeNumber(text: &amount, newValue: newValue)
+                        limitDecimalDigits(text: &amount, maxDigits: 2)
+                    }
+                ))
+
                 GridItem(title: "For", rightText: "All")
                 
                 HStack {

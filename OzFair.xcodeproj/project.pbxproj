@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B37F4E12A1247CA003332D8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B37F4E02A1247CA003332D8 /* Validation.swift */; };
 		0B67777A2A1110B70099B7F7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6777792A1110B70099B7F7 /* CustomTabBar.swift */; };
 		0B67777F2A1111150099B7F7 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777C2A1111150099B7F7 /* Poppins-Medium.ttf */; };
 		0B6777802A1111150099B7F7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B37F4E02A1247CA003332D8 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		0B6777792A1110B70099B7F7 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		0B67777C2A1111150099B7F7 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		0B67777D2A1111150099B7F7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				5D1247192A09C06500AEDBA5 /* Definitions.swift */,
 				5D12471B2A09C07100AEDBA5 /* Helpers.swift */,
 				5D12471D2A09C26600AEDBA5 /* Colors.swift */,
+				0B37F4E02A1247CA003332D8 /* Validation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				5D76F1BE2A11A4470048AA14 /* SettleUp.swift in Sources */,
 				5D12471E2A09C26600AEDBA5 /* Colors.swift in Sources */,
 				5D76F1C12A11F87E0048AA14 /* Data.swift in Sources */,
+				0B37F4E12A1247CA003332D8 /* Validation.swift in Sources */,
 				5D12472A2A0A0F8500AEDBA5 /* MoneyInput.swift in Sources */,
 				5D1247182A09C05900AEDBA5 /* Datastore.swift in Sources */,
 				1D230AB52A108B7E009E074A /* TransferService.swift in Sources */,
