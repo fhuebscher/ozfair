@@ -7,11 +7,12 @@
 
 import Foundation
 
+// All the different types of data (groups, accounts, transactions, and expenses)
+
 struct GroupStruct {
     let name: String
     let currency: Int // for different currencies
 }
-
 
 struct Account {
     let title: String

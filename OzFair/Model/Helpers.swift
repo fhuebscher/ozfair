@@ -8,9 +8,8 @@
 import Foundation
 import RxSwift
 
-
+// Checks whether a string can be converted into a valid double
 extension String {
-    
     func isValidDouble(maxDecimalPlaces: Int) -> Bool {
         let formatter = NumberFormatter()
         formatter.allowsFloats = true

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class Datastore: ObservableObject {
+    // Singleton instance
     static let shared = Datastore()
     
     private let accountsUrl: URL
@@ -16,6 +17,7 @@ class Datastore: ObservableObject {
     private let groupsUrl: URL
     private let expenseUrl: URL
     
+    // Observable for all SwiftUI components
     @Published var accounts: [Int: Account] = [:]
     @Published var transactions: [Int: Transaction] = [:]
     @Published var groups: [Int: GroupStruct] = [:]
@@ -23,6 +25,7 @@ class Datastore: ObservableObject {
     @Published var currentAccount: Int = 0
     @Published var currentGroup: Int = 0
     
+    // If not initiated yet, get data from mockups
     private init() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.accountsUrl = documentsDirectory.appendingPathComponent("accounts.plist")

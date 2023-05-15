@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// All colors from Figma imported
 extension Color {
     static let heading = Color(red: 22/255, green: 23/255, blue: 22/255)
     static let text = Color(red: 22/255, green: 23/255, blue: 22/255)
