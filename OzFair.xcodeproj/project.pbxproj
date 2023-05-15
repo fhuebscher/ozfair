@@ -153,22 +153,9 @@
 		5D0349BA2A0910D700D5E43D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0B6777792A1110B70099B7F7 /* CustomTabBar.swift */,
-				5D0349BC2A09150E00D5E43D /* ContentView.swift */,
-				5D1247212A09CA8E00AEDBA5 /* Tabs.swift */,
-				5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */,
-				5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */,
-				5D1247252A09D63900AEDBA5 /* List.swift */,
-				5D1247272A09F01000AEDBA5 /* Grid.swift */,
-				5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */,
-				5D12472B2A0A119600AEDBA5 /* Button.swift */,
-				5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */,
-				5D76F1B92A10C7840048AA14 /* NewExpense.swift */,
-				5D76F1BD2A11A4470048AA14 /* SettleUp.swift */,
-				5D76F1C22A11FA450048AA14 /* HomeView.swift */,
-				5D76F1C42A11FA630048AA14 /* TransferView.swift */,
-				5D76F1C62A11FA6E0048AA14 /* GroupsView.swift */,
-				5D76F1C82A11FA770048AA14 /* MoreView.swift */,
+				5D76F1CC2A11FE5B0048AA14 /* Components */,
+				5D76F1CB2A11FE420048AA14 /* Panels */,
+				5D76F1CA2A11FE270048AA14 /* Views */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -192,6 +179,43 @@
 				5D76F1C02A11F87E0048AA14 /* Data.swift */,
 			);
 			path = Mockups;
+			sourceTree = "<group>";
+		};
+		5D76F1CA2A11FE270048AA14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D0349BC2A09150E00D5E43D /* ContentView.swift */,
+				5D76F1C22A11FA450048AA14 /* HomeView.swift */,
+				5D76F1C42A11FA630048AA14 /* TransferView.swift */,
+				5D76F1C62A11FA6E0048AA14 /* GroupsView.swift */,
+				5D76F1C82A11FA770048AA14 /* MoreView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5D76F1CB2A11FE420048AA14 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				5D76F1BD2A11A4470048AA14 /* SettleUp.swift */,
+				5D76F1B92A10C7840048AA14 /* NewExpense.swift */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
+		5D76F1CC2A11FE5B0048AA14 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0B6777792A1110B70099B7F7 /* CustomTabBar.swift */,
+				5D1247212A09CA8E00AEDBA5 /* Tabs.swift */,
+				5D1247232A09CD3900AEDBA5 /* BalanceCard.swift */,
+				5D12472D2A0A19CC00AEDBA5 /* GroupCard.swift */,
+				5D1247252A09D63900AEDBA5 /* List.swift */,
+				5D1247272A09F01000AEDBA5 /* Grid.swift */,
+				5D1247292A0A0F8500AEDBA5 /* MoneyInput.swift */,
+				5D12472B2A0A119600AEDBA5 /* Button.swift */,
+				5D12472F2A0A298500AEDBA5 /* UserCircleStack.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E3ABEED2C15739C0F254403A /* Pods */ = {
