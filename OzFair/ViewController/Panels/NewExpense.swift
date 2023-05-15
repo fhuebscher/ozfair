@@ -8,11 +8,10 @@
 import Foundation
 import SwiftUI
 
-// Structure for New Exapneses Panel
-
+// Structure for Exapneses Panel
 struct NewExpensesPanel: View {
     @Environment(\.presentationMode) var presentationMode
-    // Initalise state variables title and amount
+    // Initialize state variables title and amount
     @State var title = ""
     @State var amount = ""
     @ObservedObject var datastore = Datastore.shared
@@ -23,8 +22,9 @@ struct NewExpensesPanel: View {
                 .ignoresSafeArea()
             
             VStack {
+                // Dismiss button
                 Button {
-                  presentationMode.wrappedValue.dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.fadedText)
@@ -46,15 +46,18 @@ struct NewExpensesPanel: View {
                         limitDecimalDigits(text: &amount, maxDigits: 2)
                     }
                 ))
-
                 GridItem(title: "For", rightText: "All")
                 
                 HStack {
+                    // Cancel Expense button
                     CustomButton(label: "Cancel Expense", color: .negativeAmount) {
                         presentationMode.wrappedValue.dismiss()
                     }
-                        .padding(.trailing, 5)
+                    .padding(.trailing, 5)
+                    
                     Spacer()
+                    
+                    // Confirm Expense button
                     CustomButton(label: "Confirm Expense", color: .navActive) {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "dd MMM yyyy"
@@ -68,13 +71,14 @@ struct NewExpensesPanel: View {
                             amount = ""
                         }
                     }
-                        .padding(.leading, 5)
-                        .opacity(title != "" && amount != "" ? 1 : 0.5)
-                }.padding(.top, 30)
+                    .padding(.leading, 5)
+                    .opacity(title != "" && amount != "" ? 1 : 0.5)
+                }
+                .padding(.top, 30)
                 
                 Spacer()
             }
-            // horizontal and vertical padding
+            // Horizontal and vertical padding
             .padding(.horizontal, 30)
             .padding(.vertical, 50)
         }
