@@ -73,7 +73,6 @@ struct ExchangeRequest {
 
 
 // ECB Data provider for ObservableObject
-
 class TransferService: NSObject {
     private var rates: [String: Double] = [:]
     private let baseCurrency = "AUD"
@@ -90,13 +89,35 @@ class TransferService: NSObject {
         return (amount / sourceRate) * targetRate
     }
 
+    // Receive ECB exchange currency data asynchronously  
     private func updateRates() {
         guard let feedUrl = URL(string: "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml") else {
             return
         }
-        let parser = XMLParser(contentsOf: feedUrl)!
-        parser.delegate = self
-        parser.parse()
+        
+        let task = URLSession.shared.dataTask(with: feedUrl) { (data, response, error) in
+            // Handle the response and error here
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            // Parse the data here
+            if let data = data {
+                DispatchQueue.global().async {
+                    let parser = XMLParser(data: data)
+                    parser.delegate = self
+                    parser.parse()
+                    
+                    // Perform UI updates on the main thread after a delay
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        // Perform any UI updates or further processing here
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
 }
 
