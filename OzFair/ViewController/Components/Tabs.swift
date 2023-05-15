@@ -15,12 +15,14 @@ struct Tabs: View {
             ForEach(items, id: \.0) { item in
                 let color = item.2 ? Color.navActive : Color.text
                 let opacity: Double = item.2 ? 1 : 0
+                // Tab Item
                 VStack {
                     Text(item.0)
                         .fontWeight(.semibold)
                         .font(.caption)
                         .lineSpacing(20)
                         .foregroundColor(color)
+                    // Indicator
                     RoundedRectangle(cornerRadius: 2)
                         .frame(width: item.1, height: 2)
                         .foregroundColor(color)
