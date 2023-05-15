@@ -8,8 +8,11 @@
 import Foundation
 import SwiftUI
 
+// Structure for New Exapneses Panel
+
 struct NewExpensesPanel: View {
     @Environment(\.presentationMode) var presentationMode
+    // Initalise state variables title and amount
     @State var title = ""
     @State var amount = ""
     @ObservedObject var datastore = Datastore.shared
@@ -32,6 +35,7 @@ struct NewExpensesPanel: View {
             }
                     
             VStack {
+                // Grid items setup
                 GridItem(title: "Title", leftTextInput: true, leftTextValue: $title)
                 GridItem(title: "Amount", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
                 GridItem(title: "For", rightText: "All")
@@ -46,6 +50,7 @@ struct NewExpensesPanel: View {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "dd MMM yyyy"
                         let todayString = dateFormatter.string(from: Date())
+                        // Check for valid data type -> perform default action if not valid
                         if let amount = Double(amount) {
                             let exp = Expense(title: title, amount: Double(amount), date: todayString, belongsTo: datastore.currentGroup)
                             Datastore.shared.setExpense(expense: exp)
@@ -60,6 +65,7 @@ struct NewExpensesPanel: View {
                 
                 Spacer()
             }
+            // horizontal and vertical padding
             .padding(.horizontal, 30)
             .padding(.vertical, 50)
         }
