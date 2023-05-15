@@ -15,7 +15,7 @@ let currencyMappings = [
     ["name": "Florian", "currency": "€", "to": "EUR"]
 ]
 
-// mock-up for simplicity
+// Currency Exchange mock-up for MVP simplicity
 func convertAmount(amount: Double, from sourceCurrency: String, to targetCurrency: String) -> Double {
     let amountDouble = Double(amount)
     switch (sourceCurrency, targetCurrency) {
@@ -42,7 +42,7 @@ func convertAmount(amount: Double, from sourceCurrency: String, to targetCurrenc
     }
 }
 
-
+// Currencies and their sign
 enum Currency: String {
     case AUD
     case EUR
@@ -59,18 +59,6 @@ enum Currency: String {
         }
     }
 }
-
-typealias Money = [Currency: Double]
-
-struct ExchangeRequest {
-    let from: Currency
-    let to: Currency
-    let value: Double
-    let rateFrom: Double
-    let rateTo: Double
-}
-
-
 
 // ECB Data provider for ObservableObject
 class TransferService: NSObject {
@@ -89,7 +77,7 @@ class TransferService: NSObject {
         return (amount / sourceRate) * targetRate
     }
 
-    // Receive ECB exchange currency data asynchronously  
+    // Receive ECB exchange currency data asynchronously
     private func updateRates() {
         guard let feedUrl = URL(string: "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml") else {
             return
@@ -121,7 +109,9 @@ class TransferService: NSObject {
     }
 }
 
+// TransferService parsing functions
 extension TransferService: XMLParserDelegate {
+    // Sets base currency
     func parserDidEndDocument(_ parser: XMLParser) {
         print("Currency rates updated")
         // Scale the rates to AUD
@@ -133,6 +123,7 @@ extension TransferService: XMLParserDelegate {
         }
     }
 
+    // Parses entries of XML document for each currency
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if elementName == "Cube" {
             if let currencyCode = attributeDict["currency"], let rateString = attributeDict["rate"], let rate = Double(rateString) {

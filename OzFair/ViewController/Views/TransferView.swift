@@ -129,18 +129,27 @@ struct TransferView: View {
             
             GridItem(title: "Today", leftIcon: "calendar")
             CustomButton(label: "Transfer Money") {
-                amount = "0.0"
-                convertedAmount = "0.0"
-                selectedAccount = 0
-                selectedCurrency = 0
-                showingConfirmation = true
-                datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
+                // TODO to delete
+//                amount = "0.0"
+//                convertedAmount = "0.0"
+//                selectedAccount = 0
+//                selectedCurrency = 0
+//                showingConfirmation = true
+//                datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
                 // ToDo change this to real transfer in alert below
             }
             .padding(.bottom, 30)
             .alert(isPresented: $showingConfirmation) {
                 Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
                     // perform the transfer action here
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd MMM yyyy"
+                    let todayString = dateFormatter.string(from: Date())
+                    
+                    let exp = Expense(title: "App transaction", amount: Double(amount) ?? 0.0, date: todayString, belongsTo: datastore.currentGroup)
+
+                    Datastore.shared.setExpense(expense: exp)
+                    
                 }, secondaryButton: .cancel())
             }
             

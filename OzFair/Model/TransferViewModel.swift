@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Alternative to Datastore for the TransferView
 class TransferViewModel: ObservableObject {
     @Published var amount: String = "0.0"
     @Published var sourceCurrency: String = "EUR" {
