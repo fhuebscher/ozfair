@@ -79,7 +79,7 @@ class TransferService: NSObject {
 
     // Receive ECB exchange currency data asynchronously
     private func updateRates() {
-        guard let feedUrl = URL(string: "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml") else {
+        guard let feedUrl = URL(string: "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml") else {
             return
         }
         
