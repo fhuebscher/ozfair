@@ -41,7 +41,7 @@ struct BalanceCard: View, Identifiable, Equatable, Hashable {
                 .padding(.leading, 30)
             Spacer()
         }
-        .frame(width: 200, height: 150, alignment: .leading)
+        .frame(width: UIScreen.main.bounds.width - 80, height: 150, alignment: .leading)
         .background(bgColor)
         .cornerRadius(10)
     }

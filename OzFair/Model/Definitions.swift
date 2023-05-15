@@ -13,11 +13,17 @@ struct GroupStruct {
 }
 
 
-struct Transaction: Identifiable {
-    var id = UUID()
-    var title: String
-    var date: String
+struct Account {
+    let title: String
     var amount: Double
+    let currency: String
+}
+
+struct Transaction {
+    let title: String
+    let date: String
+    let amount: Double
+    let belongsTo: Int
 }
 
 struct Expense {

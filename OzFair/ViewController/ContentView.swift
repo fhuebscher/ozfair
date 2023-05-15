@@ -32,10 +32,8 @@ struct ContentView: View {
 
 
 struct HomeView: View {
-    //Transactions list
-    let transactions = [Transaction(title: "To Magnus", date: "08 May 2023", amount: 59.00),
-                        Transaction(title: "To Fabian", date: "01 May 2023", amount: 123.40),
-                        Transaction(title: "To Joel", date: "28 April 2023", amount: 21.60)]
+    @ObservedObject var datastore = Datastore.shared
+    @State var selection = 0
     
     
     var body: some View {
@@ -60,19 +58,28 @@ struct HomeView: View {
                 Spacer(minLength: 50)
                 // Tabs
                 Tabs(items: [("Accounts", 58, true), ("Cards", 38, false)])
-                Spacer(minLength: 50)
+                Spacer(minLength: 20)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
-                        ForEach(balances, id: \.self) { balance in
-                            balance
-                                .padding(20)
-                        }
+                //Group Cards and pagination
+                TabView(selection:$selection) {
+                    ForEach(datastore.getAccounts().sorted(by: { $0.key < $1.key }), id: \.key) { id, account in
+                        let color = account.currency == "AUD" ? Color.cardColor1 : Color.cardColor2
+                        BalanceCard(title: account.title, amount: account.amount, bgColor: color, from: account.currency)
                     }
                 }
-                .padding(-30)
+                .onChange(of: selection) { newSelection in
+                    datastore.currentAccount = newSelection
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .frame(height: 160) // Set height to a fixed value
+                .onAppear {
+                    UIPageControl.appearance().currentPageIndicatorTintColor = .white
+                    UIPageControl.appearance().pageIndicatorTintColor = .fadedText
+                }
+                .background(Color.clear)
+                .id("TabView") // Add an ID to the TabView
                 
-                Spacer(minLength: 50)
+                Spacer(minLength: 20)
                 // Recent Transactions
                 Text("Recent Transactions")
                     .fontWeight(.semibold)
@@ -90,7 +97,7 @@ struct HomeView: View {
                 .padding(.bottom, 10)
                 
                 VStack {
-                    ForEach(transactions) { transaction in
+                    ForEach(datastore.getTransactions(group: datastore.currentAccount).sorted(by: { $0.key < $1.key }), id: \.key) { id, transaction in
                         ListItem(title: transaction.title, date: transaction.date, amount: transaction.amount)
                     }
                 }
@@ -110,24 +117,29 @@ struct TransferView: View {
     @State var selectedAccount = 0
     @State var selectedCurrency = 0
     @State private var showingConfirmation = false
+    @ObservedObject var datastore = Datastore.shared
     
     private let transferService = TransferService()
     
     var amountFromTitle: String {
         let currencySign: String
-        
-        switch balances[selectedAccount].from {
-        case "AUD":
-            currencySign = "AU$"
-        case "EUR":
-            currencySign = "€"
-        case "USD":
-            currencySign = "$"
-        default:
-            currencySign = ""
+        let accounts = datastore.getAccounts()
+        if let account = accounts[selectedAccount] {
+            switch account.currency {
+            case "AUD":
+                currencySign = "AU$"
+            case "EUR":
+                currencySign = "€"
+            case "USD":
+                currencySign = "$"
+            default:
+                currencySign = ""
+            }
+            
+            return "From (in \(currencySign))"
+        } else {
+            return "From"
         }
-        
-        return "From (in \(currencySign))"
     }
     
     var body: some View {
@@ -160,9 +172,8 @@ struct TransferView: View {
                     .padding(.trailing, 10)
                 Spacer()
                 Picker("Select Account", selection: $selectedAccount) {
-                    ForEach(balances.indices, id: \.self) { index in
-                        let balance = balances[index]
-                        Text("\(balance.title) - $\(String(format: "%.2f", balance.amount))")
+                    ForEach(datastore.getAccounts().sorted(by: { $0.key < $1.key }), id: \.key) { id, account in
+                        Text("\(account.title) - $\(String(format: "%.2f", account.amount))")
                     }
                 }
                 .accentColor(.primary)
@@ -183,8 +194,8 @@ struct TransferView: View {
                     .padding(.trailing, 10)
                 Spacer()
                 Picker("Select Recipient", selection: $selectedCurrency) {
-                    ForEach(accounts.indices, id: \.self) { index in
-                        let account = accounts[index]
+                    ForEach(currencyMappings.indices, id: \.self) { index in
+                        let account = currencyMappings[index]
                         Text("\(account["name"]!) - \(account["currency"]!)")
                     }
                 }
@@ -196,17 +207,18 @@ struct TransferView: View {
             .background(Color.white)
             .cornerRadius(10)
             .frame(width: .infinity, alignment: .center)
+            let currentAccount = datastore.getAccount(id: $selectedAccount.wrappedValue)
             GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: $amount)
-            GridItem(title: "To  (in \(accounts.indices.contains($selectedCurrency.wrappedValue) ? accounts[$selectedCurrency.wrappedValue]["currency"] ?? "AU$" : ""))", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(get: {
+            GridItem(title: "To  (in \(currencyMappings.indices.contains($selectedCurrency.wrappedValue) ? currencyMappings[$selectedCurrency.wrappedValue]["currency"] ?? "AU$" : ""))", leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(get: {
                 let amountDouble = Double(amount) ?? -1.0
-                let selectedCurrency = balances[$selectedAccount.wrappedValue].from
-                let targetCurrency = accounts.indices.contains($selectedCurrency.wrappedValue) ? accounts[$selectedCurrency.wrappedValue]["to"] ?? "AUD" : "AUD"
+                let selectedCurrency = currentAccount.currency
+                let targetCurrency = currencyMappings.indices.contains($selectedCurrency.wrappedValue) ? currencyMappings[$selectedCurrency.wrappedValue]["to"] ?? "AUD" : "AUD"
                 let convertedAmount = convertAmount(amount: amountDouble, from: selectedCurrency, to: targetCurrency)
                 return String(format: "%.2f", convertedAmount)
             }, set: { newValue in
                 convertedAmount = newValue
             }))
-
+            
             GridItem(title: "Today", leftIcon: "calendar")
             CustomButton(label: "Transfer Money") {
                 amount = "0.0"
@@ -214,14 +226,15 @@ struct TransferView: View {
                 selectedAccount = 0
                 selectedCurrency = 0
                 showingConfirmation = true
-                balances[$selectedAccount.wrappedValue].amount -= Double(amount) ?? 100.0
+                datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
             }
-                .padding(.bottom, 30)
-                .alert(isPresented: $showingConfirmation) {
-                    Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
-                            // perform the transfer action here
-                        }, secondaryButton: .cancel())
-                }
+            .padding(.bottom, 30)
+            .alert(isPresented: $showingConfirmation) {
+                Alert(title: Text("Confirm Transfer"), message: Text("Are you sure you want to transfer the money?"), primaryButton: .destructive(Text("Transfer")) {
+                    // perform the transfer action here
+                }, secondaryButton: .cancel())
+            }
+            
             Spacer()
         }
         .frame(maxHeight: .infinity, alignment: .leading)
@@ -232,8 +245,6 @@ struct TransferView: View {
     
   
 }
-
-var currentGroup: Int = 0
 
 struct GroupsView: View {
     @State var showPanel = false

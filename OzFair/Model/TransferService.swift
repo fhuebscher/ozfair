@@ -7,39 +7,7 @@
 
 import Foundation
 
-
-// // Mock class for testing
-
-//class TransferService {
-//    func convert(_ amount: Double, from sourceCurrency: String, to targetCurrency: String) -> Double? {
-//        guard let sourceRate = getRate(for: sourceCurrency), let targetRate = getRate(for: targetCurrency) else {
-//            return nil
-//        }
-//        return amount * targetRate / sourceRate
-//    }
-//
-//    private func getRate(for currency: String) -> Double? {
-//        switch currency {
-//        case "AUD":
-//            return 1.0
-//        case "EUR":
-//            return 0.65
-//        case "USD":
-//            return 0.78
-//        default:
-//            return nil
-//        }
-//    }
-//}
-
-var balances = [
-    BalanceCard(title: "Spending 1 AUD", amount: 2000.05, bgColor: .cardColor1, from: "AUD"),
-    BalanceCard(title: "Spending 2 USD", amount: 100.23, bgColor: .cardColor2, from: "USD"),
-    BalanceCard(title: "Spending 3 USD", amount: 24.50, bgColor: .cardColor2, from: "USD"),
-    BalanceCard(title: "Spending 4 USD", amount: 1500.45, bgColor: .cardColor2, from: "USD")
-]
-
-let accounts = [
+let currencyMappings = [
     ["name": "Fabi", "currency": "€", "to": "EUR"],
     ["name": "Magnusen", "currency": "AU$", "to": "AUD"],
     ["name": "Magnusen", "currency": "€", "to": "EUR"],
