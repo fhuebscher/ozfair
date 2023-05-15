@@ -18,7 +18,7 @@ struct ContentView: View {
             } else if selectedTab == .groups {
                 GroupsView()
             } else if selectedTab == .transfer {
-                TransferView() // TransferView(transferViewModel = TransferViewModel())
+                TransferView()
             } else if selectedTab == .more {
                 MoreView()
             }

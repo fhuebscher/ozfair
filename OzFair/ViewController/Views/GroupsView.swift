@@ -57,7 +57,7 @@ struct GroupsView: View {
                         UIPageControl.appearance().pageIndicatorTintColor = .fadedText
                     }
                     .background(Color.clear)
-                    .id("TabView") // Add an ID to the TabView
+                    .id("TabView")
                     // Recent Transactions
 
                     HStack{
@@ -79,13 +79,13 @@ struct GroupsView: View {
                     .padding(.bottom, 10)
                     
                     //Expenses
-                    ScrollViewReader { scrollViewProxy in // Wrap the VStack inside a ScrollViewReader
+                    ScrollViewReader { scrollViewProxy in
                         VStack {
                             ForEach(datastore.getExpenses(group: datastore.currentGroup).sorted(by: { $0.key < $1.key }), id: \.key) { id, expense in
                                 ListItem(title: expense.title, date: expense.date, amount: expense.amount)
                             }
                         }
-                        .id("List") // Add an ID to the VStack
+                        .id("List")
                         .onAppear {
                             // Scroll to the bottom of the list when it first appears
                             withAnimation {

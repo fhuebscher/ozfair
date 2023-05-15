@@ -126,6 +126,7 @@ struct TransferView: View {
                 selectedCurrency = 0
                 showingConfirmation = true
                 datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
+                // ToDo change this to real transfer in alert below
             }
             .padding(.bottom, 30)
             .alert(isPresented: $showingConfirmation) {

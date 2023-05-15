@@ -54,7 +54,7 @@ struct HomeView: View {
                     UIPageControl.appearance().pageIndicatorTintColor = .fadedText
                 }
                 .background(Color.clear)
-                .id("TabView") // Add an ID to the TabView
+                .id("TabView")
                 
                 Spacer(minLength: 20)
                 // Recent Transactions
