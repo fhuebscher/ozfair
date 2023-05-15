@@ -84,7 +84,6 @@ struct TransferView: View {
             .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
-            .frame(width: .infinity, alignment: .center)
             HStack {
                 Text("To: ")
                     .fontWeight(.semibold)
@@ -106,7 +105,6 @@ struct TransferView: View {
             .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
-            .frame(width: .infinity, alignment: .center)
             let currentAccount = datastore.getAccount(id: $selectedAccount.wrappedValue)
             GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(
                 get: {
@@ -129,14 +127,7 @@ struct TransferView: View {
             
             GridItem(title: "Today", leftIcon: "calendar")
             CustomButton(label: "Transfer Money") {
-                // TODO to delete
-//                amount = "0.0"
-//                convertedAmount = "0.0"
-//                selectedAccount = 0
-//                selectedCurrency = 0
-//                showingConfirmation = true
-//                datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
-                // ToDo change this to real transfer in alert below
+                self.showingConfirmation = true
             }
             .padding(.bottom, 30)
             .alert(isPresented: $showingConfirmation) {
@@ -149,6 +140,12 @@ struct TransferView: View {
                     let exp = Expense(title: "App transaction", amount: Double(amount) ?? 0.0, date: todayString, belongsTo: datastore.currentGroup)
 
                     Datastore.shared.setExpense(expense: exp)
+                    
+                    selectedAccount = 0
+                    selectedCurrency = 0
+                    showingConfirmation = true
+                    
+                    datastore.setAccountAmount(id: $selectedAccount.wrappedValue, amount: Double(amount) ?? 0.00)
                     
                 }, secondaryButton: .cancel())
             }
