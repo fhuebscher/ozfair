@@ -89,7 +89,6 @@ class Datastore: ObservableObject {
     }
     
     func getTransactions(group: Int = -1) -> [Int: Transaction] {
-        print(transactions)
         if group == -1 {
             return transactions
         } else {

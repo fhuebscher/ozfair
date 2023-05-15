@@ -113,7 +113,6 @@ class TransferService: NSObject {
 extension TransferService: XMLParserDelegate {
     // Sets base currency
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("Currency rates updated")
         // Scale the rates to AUD
         if let audRate = rates[baseCurrency] {
             for currency in rates.keys {
