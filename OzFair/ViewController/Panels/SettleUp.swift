@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Structure for SettleUp Panel
 struct SettleUpPanel: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var datastore = Datastore.shared
