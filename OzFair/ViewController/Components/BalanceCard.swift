@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-// Balance Card Component - see Figma Design 
+// Balance Card Component
 
 struct BalanceCard: View, Identifiable, Equatable, Hashable {
     let id = UUID()
