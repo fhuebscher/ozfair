@@ -42,24 +42,6 @@ func convertAmount(amount: Double, from sourceCurrency: String, to targetCurrenc
     }
 }
 
-// Currencies and their sign
-enum Currency: String {
-    case AUD
-    case EUR
-    case USD
-    
-    func getSign() -> String {
-        switch self {
-        case .AUD:
-            return "A$"
-        case .EUR:
-            return "€"
-        case .USD:
-            return "$"
-        }
-    }
-}
-
 // ECB Data provider for ObservableObject
 class TransferService: NSObject {
     private var rates: [String: Double] = [:]
