@@ -8,8 +8,8 @@
 import Foundation
 
 let accountsMock = [
-    0: Account(title: "Spending 1 AUD", amount: 259.50, currency: "AUD"),
-    1: Account(title: "Spending 2 USD", amount: 400.25, currency: "USD"),
+    0: Account(title: "Debit 1 AUD", amount: 259.50, currency: "AUD"),
+    1: Account(title: "Debit 2 USD", amount: 400.25, currency: "USD"),
     2: Account(title: "Saving 1 USD", amount: 2250.00, currency: "USD"),
 ]
 

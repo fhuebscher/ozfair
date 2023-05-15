@@ -16,3 +16,18 @@ Installation steps:
 5. You should see a message in the terminal stating that one pod has been installed.
 
 There exist two more branches named "Design" and "Presentation", which include the figma files for the design cycles and the pptx for the presentation.
+
+
+## Functionality Details
+
+### Currency Echange Rate Functionality
+
+Use of publicly accessible ECB dataset:
+
+  https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml
+
+### Data store 
+
+  We are utilising a Datastore as an ObservableObject to keep track of the transactions.
+
+  Some functionalities have been reduced to a minimum using mock data such as in the TranfsferService. 
