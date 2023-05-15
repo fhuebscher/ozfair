@@ -15,7 +15,7 @@ struct CustomButton: View {
     let action: () -> Void
     let fontSize: Font
     var color: Color = Color.navActive
-    
+    // Initializer for button with label and optional icon
     init(label: String, icon: String? = nil, action: @escaping () -> Void) {
         self.label = label
         self.icon = icon
@@ -23,7 +23,7 @@ struct CustomButton: View {
         self.action = action
         self.fontSize = .caption
     }
-    
+    // Initializer for button with label, custom color, and optional font size
     init(label: String, color: Color, fontSize: Font? = nil, action: @escaping () -> Void) {
         self.label = label
         if let fontSize = fontSize {
@@ -35,13 +35,14 @@ struct CustomButton: View {
         self.icon = nil
         self.color = color
     }
-    
+    // Button view with action
     var body: some View {
         Button(action: {
             action()
         }) {
             HStack {
                 if let icon = icon {
+                    // Display icon and label
                     Image(systemName: icon)
                         .foregroundColor(.navActive)
                         .padding(.trailing, 5)
@@ -51,6 +52,7 @@ struct CustomButton: View {
                         .foregroundColor(color)
                         .multilineTextAlignment(.center)
                 } else {
+                    // Display label only
                     Spacer()
                     Text(label)
                         .fontWeight(.semibold)

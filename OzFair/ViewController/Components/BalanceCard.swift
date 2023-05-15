@@ -17,14 +17,13 @@ struct BalanceCard: View, Identifiable, Equatable, Hashable {
     var amount: Double
     let bgColor: Color
     let from: String
-    
+    // Number formatter for currency display
     static let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencySymbol = "$"
         return formatter
     }()
-    
     var formattedAmount: String {
         Self.formatter.string(from: NSNumber(value: amount)) ?? ""
     }
