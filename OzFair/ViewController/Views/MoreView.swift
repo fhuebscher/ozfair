@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Future features teaser
 struct MoreView: View {
     var body: some View {
         Spacer()
