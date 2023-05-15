@@ -20,8 +20,10 @@ struct TransferView: View {
     
     var amountFromTitle: String {
         let currencySign: String
+        // Retrieve accounts from datastore
         let accounts = datastore.getAccounts()
         if let account = accounts[selectedAccount] {
+            // currency mapping to currency sign
             switch account.currency {
             case "AUD":
                 currencySign = "AU$"
