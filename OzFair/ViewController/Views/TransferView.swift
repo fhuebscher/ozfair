@@ -84,7 +84,7 @@ struct TransferView: View {
             .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
-            .frame(width: .infinity, alignment: .center)
+            .frame(maxWidth: .infinity, alignment: .center)
             HStack {
                 Text("To: ")
                     .fontWeight(.semibold)
@@ -106,7 +106,7 @@ struct TransferView: View {
             .padding(.trailing, 5)
             .background(Color.white)
             .cornerRadius(10)
-            .frame(width: .infinity, alignment: .center)
+            .frame(maxWidth: .infinity, alignment: .center)
             let currentAccount = datastore.getAccount(id: $selectedAccount.wrappedValue)
             GridItem(title: amountFromTitle, leftIcon: "dollarsign.square", textInput: "AU$ 0", rightTextValue: Binding(
                 get: {

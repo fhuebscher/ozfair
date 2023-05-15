@@ -95,6 +95,6 @@ struct GridItem: View {
         .padding(.all, 20)
         .background(Color.white)
         .cornerRadius(10)
-        .frame(width: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
