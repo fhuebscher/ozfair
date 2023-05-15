@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+
+// Balance Card Component - see Figma Design 
+
 struct BalanceCard: View, Identifiable, Equatable, Hashable {
     let id = UUID()
     let title: String
