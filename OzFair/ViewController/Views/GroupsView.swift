@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// 'Groups View' View Component - see Figma Design 
 struct GroupsView: View {
     @State var showPanel = false
     @ObservedObject var datastore = Datastore.shared

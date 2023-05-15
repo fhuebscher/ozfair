@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Transfer View Component - see Figma Design
 struct TransferView: View {
     @State var amount = "0.0"
     @State var convertedAmount = "0.0"
